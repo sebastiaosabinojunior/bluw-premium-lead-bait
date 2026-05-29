@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import conrado1 from "@/assets/conrado-1.jpg";
+import conradoHero from "@/assets/conrado-hero.jpg";
 import conrado2 from "@/assets/conrado-2.jpg";
 import conrado3 from "@/assets/conrado-3.jpg";
 import selo from "@/assets/selo-8ps.png";
-import bluwFounders from "@/assets/bluw-founders.jpeg";
+import bluwFounders from "@/assets/bluw-founders-clean.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
