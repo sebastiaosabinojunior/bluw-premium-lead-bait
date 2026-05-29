@@ -149,5 +149,10 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: 'Lato', system-ui, sans-serif;
+  }
+
+  .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
   }
 }
