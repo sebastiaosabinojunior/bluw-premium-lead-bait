@@ -4,6 +4,8 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700;900&display=swap');
+
 /*
  * Design system definition.
  *
@@ -63,6 +65,13 @@
 
 :root {
   --radius: 0.625rem;
+  /* Bluw brand */
+  --bluw-navy: #010B3C;
+  --bluw-navy-deep: #00072A;
+  --bluw-cyan: #2BADCD;
+  --bluw-cream: #F5F1EA;
+  --bluw-cooper: #B58A5C;
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
@@ -140,5 +149,10 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: 'Lato', system-ui, sans-serif;
+  }
+
+  .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
   }
 }
