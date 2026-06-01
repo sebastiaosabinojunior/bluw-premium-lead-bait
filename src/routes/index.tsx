@@ -1,379 +1,407 @@
 import { createFileRoute } from "@tanstack/react-router";
-import conradoHero from "@/assets/conrado-hero.jpg";
-import conrado2 from "@/assets/conrado-2.jpg";
-import conrado3 from "@/assets/conrado-3.jpg";
+import founders from "@/assets/bluw-founders-cut.png";
+import conrado from "@/assets/conrado-hero.jpg";
 import selo from "@/assets/selo-8ps.png";
-import bluwFounders from "@/assets/bluw-founders-clean.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Bluw Comunicação — Marketing e performance para lojas de móveis de alto padrão" },
-      { name: "description", content: "Agência certificada Método 8Ps. Sistema GMD: Gestão e Maturação de Demanda para lojas de móveis planejados que querem previsibilidade e crescimento." },
-      { property: "og:title", content: "Bluw Comunicação — Marketing para lojas de móveis de alto padrão" },
-      { property: "og:description", content: "Sistema GMD: previsibilidade, autoridade e crescimento para lojas de móveis planejados. Agência certificada Método 8Ps." },
+      { title: "Bluw Comunicação — Marketing para Lojas de Móveis de Médio e Alto Padrão" },
+      { name: "description", content: "Sistema GMD — Gestão e Maturação de Demanda. Estruturamos o caminho do seu cliente do primeiro contato digital ao fechamento no showroom. Agência certificada Método 8Ps." },
+      { property: "og:title", content: "Bluw Comunicação — Marketing para Lojas de Móveis Premium" },
+      { property: "og:description", content: "Não vendemos tráfego. Vendemos um sistema que prepara o mercado para comprar de você." },
     ],
   }),
   component: Index,
 });
 
-// KV palette — Conrado Adolpho / 8Ps
-const NAVY = "#01233F";
-const NAVY_DEEP = "#011A30";
-const COOPER = "#937152";
-const COOPER_LIGHT = "#B8956E";
-const CREAM = "#FFEFD5";
-const CREAM_SOFT = "#F8E6C6";
+/* Bluw palette */
+const NAVY = "#010B3C";
+const NAVY_DEEP = "#00061F";
+const CYAN = "#2BADCD";
+const INK = "#0A0A14";
+const PAPER = "#F4F2EC";
+const LINE = "rgba(10,10,20,0.14)";
 
-function Eyebrow({ children, tone = "navy" }: { children: React.ReactNode; tone?: "navy" | "cream" | "cooper" }) {
-  const color = tone === "cream" ? CREAM : tone === "cooper" ? COOPER : NAVY;
-  return (
-    <div className="flex items-center gap-4 mb-8">
-      <span className="h-px w-12" style={{ backgroundColor: COOPER }} />
-      <span
-        className="text-[10px] uppercase font-medium"
-        style={{ color, letterSpacing: "0.4em", fontFamily: "Lexend" }}
-      >
-        {children}
-      </span>
-    </div>
-  );
-}
+const Rule = ({ color = LINE }: { color?: string }) => (
+  <div className="w-full h-px" style={{ backgroundColor: color }} />
+);
 
-function PrimaryCta({ children, href = "#contato" }: { children: React.ReactNode; href?: string }) {
-  return (
-    <a
-      href={href}
-      className="group relative inline-flex items-center gap-4 px-9 py-5 transition-all duration-500 hover:gap-6"
-      style={{ backgroundColor: COOPER, color: CREAM }}
-    >
-      <span className="text-[11px] uppercase font-medium" style={{ letterSpacing: "0.28em" }}>
-        {children}
-      </span>
-      <svg width="20" height="10" viewBox="0 0 20 10" fill="none" className="transition-transform duration-500 group-hover:translate-x-1">
-        <path d="M0 5H19M19 5L15 1M19 5L15 9" stroke="currentColor" strokeWidth="1" />
-      </svg>
-    </a>
-  );
-}
-
-function GhostCta({ children, href = "#contato" }: { children: React.ReactNode; href?: string }) {
-  return (
-    <a
-      href={href}
-      className="inline-flex items-center gap-3 px-9 py-5 border transition-all duration-500 hover:bg-white/5"
-      style={{ borderColor: "rgba(255,239,213,0.25)", color: CREAM }}
-    >
-      <span className="text-[11px] uppercase font-medium" style={{ letterSpacing: "0.28em" }}>
-        {children}
-      </span>
-    </a>
-  );
-}
+const Label = ({ children, color = INK }: { children: React.ReactNode; color?: string }) => (
+  <span
+    className="font-mono-label text-[10px] md:text-[11px]"
+    style={{ color, letterSpacing: "0.22em" }}
+  >
+    {children}
+  </span>
+);
 
 function Index() {
   return (
-    <main style={{ backgroundColor: CREAM, color: NAVY }}>
-      {/* NAV */}
-      <header className="absolute top-0 left-0 right-0 z-30">
-        <div className="max-w-[1440px] mx-auto px-8 lg:px-16 py-8 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div
-              className="font-display text-2xl tracking-wide"
-              style={{ color: CREAM, fontWeight: 500, fontStyle: "italic" }}
-            >
-              Bluw
-            </div>
-            <span className="text-[9px] uppercase" style={{ color: COOPER_LIGHT, letterSpacing: "0.32em" }}>
-              Comunicação
-            </span>
+    <div style={{ background: PAPER, color: INK }} className="min-h-screen">
+      {/* ─────────────── NAV ─────────────── */}
+      <nav className="sticky top-0 z-50" style={{ background: NAVY, borderBottom: `1px solid ${CYAN}33` }}>
+        <div className="max-w-[1240px] mx-auto px-6 md:px-10 h-[68px] flex items-center justify-between">
+          <a href="#top" className="flex items-baseline gap-2">
+            <span className="font-display text-2xl tracking-tight text-white">Bluw<span style={{ color: CYAN }}>.</span></span>
+            <span className="font-mono-label text-[9px] text-white/60 hidden sm:inline">COMUNICAÇÃO</span>
+          </a>
+          <div className="hidden md:flex items-center gap-8">
+            <a href="#metodo" className="font-mono-label text-[10px] text-white/70 hover:text-white">MÉTODO</a>
+            <a href="#bluw" className="font-mono-label text-[10px] text-white/70 hover:text-white">BLUW</a>
+            <a href="#problema" className="font-mono-label text-[10px] text-white/70 hover:text-white">DIAGNÓSTICO</a>
           </div>
-          <div className="hidden md:flex items-center gap-10">
-            <a href="#metodo" className="text-[10px] uppercase" style={{ color: "rgba(255,239,213,0.7)", letterSpacing: "0.28em" }}>
-              Método
+          <a
+            href="#contato"
+            className="font-mono-label text-[10px] px-5 py-2.5 border transition-colors"
+            style={{ borderColor: CYAN, color: CYAN }}
+          >
+            AGENDAR DIAGNÓSTICO
+          </a>
+        </div>
+      </nav>
+
+      {/* ─────────────── HERO ─────────────── */}
+      <header id="top" style={{ background: `linear-gradient(160deg, ${NAVY_DEEP} 0%, ${NAVY} 55%, #002169 100%)`, color: "white" }} className="relative overflow-hidden">
+        <div aria-hidden className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full" style={{ background: `radial-gradient(circle, ${CYAN}1A 0%, transparent 70%)` }} />
+        <div className="max-w-[1240px] mx-auto px-6 md:px-10 pt-20 md:pt-28 pb-20 md:pb-28 relative">
+          {/* eyebrow row */}
+          <div className="flex items-center gap-4 mb-10">
+            <span className="h-px w-14" style={{ background: CYAN }} />
+            <Label color="rgba(255,255,255,0.85)">ESPECIALISTAS EM VAREJO MOVELEIRO DE MÉDIO E ALTO PADRÃO</Label>
+          </div>
+
+          {/* headline grid */}
+          <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-end">
+            <h1 className="md:col-span-9 font-display font-normal text-[44px] sm:text-[58px] md:text-[78px] leading-[0.98] tracking-[-0.02em]">
+              Sua loja atraindo clientes com <em className="italic" style={{ color: CYAN }}>perfil real</em>, fechando sem brigar no preço e crescendo com previsibilidade.
+            </h1>
+            <div className="md:col-span-3 md:pb-3">
+              <Rule color="rgba(255,255,255,0.25)" />
+              <p className="mt-5 text-sm leading-relaxed text-white/75">
+                Estruturamos o caminho do seu cliente desde o primeiro contato digital até o fechamento no showroom — com método, maturação de demanda e sem agência genérica.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-14 flex flex-col sm:flex-row gap-5 sm:items-center">
+            <a href="#contato" className="font-mono-label text-[11px] px-8 py-4 inline-flex items-center justify-center gap-3 transition-colors" style={{ background: CYAN, color: NAVY }}>
+              AGENDAR DIAGNÓSTICO <span aria-hidden>→</span>
             </a>
-            <a href="#bluw" className="text-[10px] uppercase" style={{ color: "rgba(255,239,213,0.7)", letterSpacing: "0.28em" }}>
-              Bluw
+            <a href="#metodo" className="font-mono-label text-[11px] px-8 py-4 inline-flex items-center justify-center border transition-colors" style={{ borderColor: "rgba(255,255,255,0.35)", color: "white" }}>
+              CONHECER O MÉTODO
             </a>
-            <a href="#contato" className="text-[10px] uppercase border-b pb-1" style={{ color: CREAM, letterSpacing: "0.28em", borderColor: COOPER }}>
-              Diagnóstico
-            </a>
+            <span className="font-mono-label text-[10px] text-white/55 sm:ml-2">DIAGNÓSTICO GRATUITO · SEM COMPROMISSO</span>
+          </div>
+
+          {/* ticker strip */}
+          <div className="mt-24 grid grid-cols-2 md:grid-cols-4 border-t border-b" style={{ borderColor: "rgba(255,255,255,0.15)" }}>
+            {[
+              ["+180%", "FATURAMENTO / 90 DIAS"],
+              ["3×", "VISITAS QUALIFICADAS"],
+              ["−60%", "LEADS FRIOS"],
+              ["4°", "MÊS DE PIPELINE PREVISÍVEL"],
+            ].map(([v, l], i) => (
+              <div key={i} className={`py-6 px-4 ${i !== 0 ? "md:border-l" : ""} ${i % 2 !== 0 ? "border-l md:border-l" : ""} ${i >= 2 ? "border-t md:border-t-0" : ""}`} style={{ borderColor: "rgba(255,255,255,0.15)" }}>
+                <div className="font-display text-3xl md:text-4xl">{v}</div>
+                <div className="mt-2"><Label color="rgba(255,255,255,0.55)">{l}</Label></div>
+              </div>
+            ))}
           </div>
         </div>
       </header>
 
-      {/* HERO — editorial split */}
-      <section className="relative min-h-screen overflow-hidden" style={{ backgroundColor: NAVY }}>
-        {/* Texture overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.08] pointer-events-none mix-blend-screen"
-          style={{
-            backgroundImage:
-              "radial-gradient(ellipse at 10% 20%, rgba(147,113,82,0.6) 0%, transparent 45%), radial-gradient(ellipse at 90% 80%, rgba(147,113,82,0.4) 0%, transparent 50%)",
-          }}
-        />
-        {/* Grain */}
-        <div
-          className="absolute inset-0 opacity-[0.04] pointer-events-none"
-          style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.5'/></svg>\")",
-          }}
-        />
-
-        <div className="relative max-w-[1440px] mx-auto px-8 lg:px-16 pt-40 lg:pt-44 pb-20 lg:pb-32 grid lg:grid-cols-12 gap-10 lg:gap-16 items-end min-h-screen">
-          {/* Left text */}
-          <div className="lg:col-span-7 z-10">
-            <div className="flex items-center gap-4 mb-10">
-              <span className="h-px w-16" style={{ backgroundColor: COOPER }} />
-              <span className="text-[10px] uppercase" style={{ color: COOPER_LIGHT, letterSpacing: "0.4em", fontFamily: "Lexend" }}>
-                Agência Certificada · Método 8Ps
-              </span>
-            </div>
-
-            <h1
-              className="font-display text-[clamp(2.75rem,7vw,6.5rem)] leading-[0.95]"
-              style={{ color: CREAM, fontWeight: 300 }}
-            >
-              Marketing e<br />
-              performance para<br />
-              <em className="italic" style={{ color: COOPER_LIGHT, fontWeight: 400 }}>
-                lojas de móveis
-              </em>
-              <br />
-              de alto padrão.
-            </h1>
-
-            <p
-              className="mt-10 text-base md:text-lg max-w-xl leading-[1.7] font-light"
-              style={{ color: "rgba(255,239,213,0.65)" }}
-            >
-              Não vendemos posts. Construímos o <span style={{ color: CREAM }}>Sistema GMD</span> — Gestão e Maturação
-              de Demanda — que transforma sua loja em uma máquina previsível de fechamento.
-            </p>
-
-            <div className="mt-12 flex flex-col sm:flex-row gap-4">
-              <PrimaryCta>Agendar diagnóstico</PrimaryCta>
-              <GhostCta href="#metodo">Conhecer o método</GhostCta>
-            </div>
-          </div>
-
-          {/* Right portrait */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative">
-              {/* Cooper frame */}
-              <div className="absolute -inset-3 border" style={{ borderColor: COOPER, opacity: 0.5 }} />
-              <img src={conradoHero} alt="Conrado Adolpho" className="relative w-full h-auto object-cover" />
-              {/* Selo overlay */}
-              <div className="absolute -bottom-10 -left-10 w-28 h-28 lg:w-36 lg:h-36">
-                <img src={selo} alt="Selo Método 8Ps" className="w-full h-full object-contain drop-shadow-2xl" />
-              </div>
-            </div>
-            <div className="mt-12 lg:mt-10 lg:absolute lg:-right-2 lg:bottom-2 lg:max-w-[200px] text-right">
-              <div className="text-[9px] uppercase" style={{ color: COOPER_LIGHT, letterSpacing: "0.4em" }}>
-                Conrado Adolpho
-              </div>
-              <div className="text-[10px] mt-2 italic font-light" style={{ color: "rgba(255,239,213,0.5)", fontFamily: "Fraunces" }}>
-                Criador do Método 8Ps
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* bottom tags */}
-        <div className="relative border-t" style={{ borderColor: "rgba(255,239,213,0.1)" }}>
-          <div className="max-w-[1440px] mx-auto px-8 lg:px-16 py-7 flex flex-wrap items-center gap-x-12 gap-y-3 text-[10px] uppercase" style={{ color: "rgba(255,239,213,0.4)", letterSpacing: "0.32em" }}>
-            <span>Móveis Planejados</span>
-            <span style={{ color: COOPER }}>—</span>
-            <span>Alto Padrão</span>
-            <span style={{ color: COOPER }}>—</span>
-            <span>Performance</span>
-            <span style={{ color: COOPER }}>—</span>
-            <span>Autoridade</span>
-            <span style={{ color: COOPER }}>—</span>
-            <span>Previsibilidade</span>
-          </div>
-        </div>
-      </section>
-
-      {/* RESULTADOS */}
-      <section className="py-28 lg:py-40">
-        <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-12 gap-12 mb-20">
-            <div className="lg:col-span-5">
-              <Eyebrow>Resultados</Eyebrow>
-              <h2 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.02]" style={{ fontWeight: 300 }}>
-                Lojas que pararam de depender de <em className="italic" style={{ color: COOPER }}>sorte</em>.
+      {/* ─────────────── RESULTADOS ─────────────── */}
+      <section id="resultados" className="py-24 md:py-32">
+        <div className="max-w-[1240px] mx-auto px-6 md:px-10">
+          <div className="grid md:grid-cols-12 gap-10">
+            <div className="md:col-span-4">
+              <Label color={CYAN}>01 — RESULTADOS</Label>
+              <h2 className="font-display text-4xl md:text-5xl leading-[1] tracking-tight mt-6">
+                Números reais.<br/><em className="italic" style={{ color: CYAN }}>Negócios reais.</em>
               </h2>
-            </div>
-            <div className="lg:col-span-6 lg:col-start-7 flex items-end">
-              <p className="text-lg leading-[1.7] font-light" style={{ color: "rgba(1,35,63,0.7)" }}>
-                Cada número abaixo veio de uma loja real que aplicou o Sistema GMD por pelo menos 12 semanas.
-                Não é promessa de marketing — é o resultado quando processo encontra disciplina.
+              <p className="mt-6 text-[15px] leading-relaxed" style={{ color: "#3A3A4A" }}>
+                Não trabalhamos com promessa de volume. Trabalhamos com previsibilidade de resultado e qualidade de lead.
               </p>
             </div>
-          </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px" style={{ backgroundColor: "rgba(1,35,63,0.12)" }}>
-            {[
-              { n: "+180%", l: "Leads qualificados" },
-              { n: "3×", l: "Ticket médio" },
-              { n: "−60%", l: "Custo por venda" },
-              { n: "12 sem", l: "Para previsibilidade" },
-            ].map((r, i) => (
-              <div key={i} className="p-10 lg:p-12 group" style={{ backgroundColor: CREAM }}>
-                <div className="text-[9px] uppercase mb-6" style={{ color: COOPER, letterSpacing: "0.4em" }}>
-                  0{i + 1}
-                </div>
-                <div className="font-display text-6xl lg:text-7xl mb-4 transition-colors" style={{ color: NAVY, fontWeight: 300 }}>
-                  {r.n}
-                </div>
-                <div className="text-[11px] uppercase" style={{ color: "rgba(1,35,63,0.55)", letterSpacing: "0.22em" }}>
-                  {r.l}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* depoimento */}
-          <figure className="mt-24 lg:mt-32 grid lg:grid-cols-12 gap-12 items-start">
-            <div className="lg:col-span-1">
-              <div className="font-display text-7xl leading-none" style={{ color: COOPER, fontStyle: "italic", fontWeight: 300 }}>
-                "
-              </div>
-            </div>
-            <div className="lg:col-span-9">
-              <blockquote className="font-display italic text-3xl md:text-4xl lg:text-5xl leading-[1.2]" style={{ color: NAVY, fontWeight: 300 }}>
-                Em 4 meses paramos de brigar por preço. Hoje o cliente chega já querendo o nosso projeto, com a régua certa.
-              </blockquote>
-              <figcaption className="mt-10 flex items-center gap-4 text-[10px] uppercase" style={{ color: "rgba(1,35,63,0.5)", letterSpacing: "0.32em" }}>
-                <span className="h-px w-8" style={{ backgroundColor: COOPER }} />
-                <span>Dono de loja · SP</span>
-              </figcaption>
-            </div>
-          </figure>
-        </div>
-      </section>
-
-      {/* DOR */}
-      <section className="py-28 lg:py-40 relative overflow-hidden" style={{ backgroundColor: CREAM_SOFT }}>
-        <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-12 gap-12 mb-20">
-            <div className="lg:col-span-7">
-              <Eyebrow>O problema</Eyebrow>
-              <h2 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.02]" style={{ fontWeight: 300 }}>
-                Você já fez de tudo. E mesmo assim a loja{" "}
-                <em className="italic" style={{ color: COOPER }}>
-                  continua refém do mês.
-                </em>
-              </h2>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-x-16 gap-y-12 lg:gap-y-16 max-w-5xl">
-            {[
-              "Investe em tráfego pago mas chega lead frio que só quer preço de tabela.",
-              "Depende do vendedor estrela — se ele sai, o mês morre junto.",
-              "O Instagram cresce em seguidores, não em venda.",
-              "Mês bom puxa mês ruim. Nunca sabe quanto vai fechar.",
-            ].map((d, i) => (
-              <div key={i} className="flex gap-8 pb-12 border-b" style={{ borderColor: "rgba(1,35,63,0.15)" }}>
-                <div className="font-display text-5xl shrink-0 leading-none" style={{ color: COOPER, fontWeight: 300 }}>
-                  0{i + 1}
-                </div>
-                <p className="text-lg leading-[1.6] pt-1 font-light" style={{ color: NAVY }}>
-                  {d}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-24 max-w-3xl">
-            <p className="font-display italic text-3xl md:text-4xl leading-[1.3]" style={{ fontWeight: 300 }}>
-              O problema não é falta de marketing. É falta de{" "}
-              <span style={{ color: COOPER }}>sistema</span>.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* MÉTODO GMD */}
-      <section id="metodo" className="py-28 lg:py-40 relative overflow-hidden" style={{ backgroundColor: NAVY, color: CREAM }}>
-        <div
-          className="absolute inset-0 opacity-[0.04] pointer-events-none"
-          style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.5'/></svg>\")",
-          }}
-        />
-
-        <div className="relative max-w-[1440px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-12 gap-12 mb-20">
-            <div className="lg:col-span-7">
-              <Eyebrow tone="cream">O método</Eyebrow>
-              <h2 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.02]" style={{ color: CREAM, fontWeight: 300 }}>
-                <em className="italic" style={{ color: COOPER_LIGHT }}>GMD</em>
-                <br />
-                Gestão e Maturação<br />
-                de Demanda.
-              </h2>
-            </div>
-            <div className="lg:col-span-5 flex items-end">
-              <p className="text-lg leading-[1.7] font-light" style={{ color: "rgba(255,239,213,0.65)" }}>
-                Quatro fases conectadas — não quatro serviços soltos. O sistema que pega o lead frio, aquece com
-                autoridade e entrega no balcão pronto para fechar.
-              </p>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px" style={{ backgroundColor: "rgba(255,239,213,0.1)" }}>
-            {[
-              { n: "01", t: "Captura", d: "Tráfego pago e orgânico desenhado para o público de alto padrão. Sem leads de curiosos." },
-              { n: "02", t: "Maturação", d: "Conteúdo de autoridade que educa, posiciona e elimina a concorrência por preço." },
-              { n: "03", t: "Conversão", d: "Funil comercial integrado ao showroom: WhatsApp, agendamento, follow-up estruturado." },
-              { n: "04", t: "Recompra", d: "Pós-venda, indicação e reativação. Cliente que volta e traz outros." },
-            ].map((p) => (
-              <div key={p.n} className="p-10 lg:p-12 relative" style={{ backgroundColor: NAVY }}>
-                <div className="font-display text-7xl mb-8 leading-none" style={{ color: COOPER, fontWeight: 300 }}>
-                  {p.n}
-                </div>
-                <div className="font-display text-2xl mb-5" style={{ color: CREAM, fontWeight: 400 }}>
-                  {p.t}
-                </div>
-                <p className="text-sm leading-[1.7] font-light" style={{ color: "rgba(255,239,213,0.55)" }}>
-                  {p.d}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* O que você recebe */}
-          <div className="mt-24 lg:mt-32">
-            <div className="grid lg:grid-cols-12 gap-12 items-end mb-12">
-              <div className="lg:col-span-7">
-                <Eyebrow tone="cream">O que está incluído</Eyebrow>
-                <h3 className="font-display text-3xl md:text-4xl leading-[1.15]" style={{ color: CREAM, fontWeight: 300 }}>
-                  Um único contrato. <em className="italic" style={{ color: COOPER_LIGHT }}>Seis frentes</em> trabalhando juntas.
-                </h3>
-              </div>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12">
+            <div className="md:col-span-8">
+              <Rule />
               {[
-                "Estratégia anual de marca e performance",
-                "Gestão completa de tráfego pago",
-                "Direção criativa e produção de conteúdo",
-                "Funil de WhatsApp e CRM comercial",
-                "Treinamento da equipe de vendas",
-                "Relatórios semanais com dados de venda",
-              ].map((e, i) => (
-                <div key={i} className="flex gap-5 items-start py-6 border-t" style={{ borderColor: "rgba(255,239,213,0.15)" }}>
-                  <span className="font-display text-xs pt-1" style={{ color: COOPER, fontFamily: "Lexend", letterSpacing: "0.1em" }}>
-                    0{i + 1}
-                  </span>
-                  <span className="text-sm leading-[1.5] font-light" style={{ color: "rgba(255,239,213,0.85)" }}>
-                    {e}
-                  </span>
+                ["+180%", "de crescimento no faturamento em 90 dias com sistema de maturação de demanda", "LOJA DE MÓVEIS · SP"],
+                ["3×", "mais visitas qualificadas ao showroom — cliente chegando preparado para comprar", "LOJA ALTO PADRÃO · MG"],
+                ["−60%", "de redução em leads frios — menos curioso no WhatsApp, mais comprador no showroom", "VAREJO MOVELEIRO · RS"],
+                ["4°", "mês com pipeline previsível e equipe comercial fechando com mais consistência", "SHOWROOM PREMIUM · RJ"],
+              ].map(([v, t, src], i) => (
+                <div key={i}>
+                  <div className="py-8 grid grid-cols-12 gap-6 items-baseline">
+                    <div className="col-span-3 font-display text-[40px] md:text-[56px] leading-none tracking-tight" style={{ color: NAVY }}>{v}</div>
+                    <p className="col-span-7 text-[16px] leading-snug" style={{ color: INK }}>{t}</p>
+                    <div className="col-span-2 text-right"><Label color="#7A7A88">{src}</Label></div>
+                  </div>
+                  <Rule />
+                </div>
+              ))}
+
+              <blockquote className="mt-12 pl-6 border-l-2" style={{ borderColor: CYAN }}>
+                <p className="font-display italic text-2xl md:text-[28px] leading-[1.25]" style={{ color: NAVY }}>
+                  "Finalmente uma consultoria que entende que móvel de alto padrão não se vende com volume de leads. A Bluw estruturou nosso processo do zero — hoje temos previsibilidade de agenda e a equipe está muito mais preparada para conduzir o cliente até o fechamento."
+                </p>
+                <footer className="mt-5"><Label color="#7A7A88">DONO DE LOJA · ALTO PADRÃO · SÃO PAULO</Label></footer>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────── QUEM SOMOS (BLUW) ─────────────── */}
+      <section id="bluw" style={{ background: NAVY, color: "white" }} className="py-24 md:py-32 relative overflow-hidden">
+        <div className="max-w-[1240px] mx-auto px-6 md:px-10">
+          <div className="grid md:grid-cols-12 gap-12 items-end">
+            <div className="md:col-span-5 order-2 md:order-1 relative">
+              <div className="aspect-[4/5] relative" style={{ background: `linear-gradient(180deg, ${NAVY_DEEP} 0%, ${NAVY} 100%)` }}>
+                <div className="absolute inset-0 border" style={{ borderColor: `${CYAN}55` }} />
+                <img src={founders} alt="Junior Sabino e Vitor HRF, sócios da Bluw Comunicação" className="absolute inset-0 w-full h-full object-contain object-bottom" />
+                <div className="absolute top-4 left-4"><Label color={CYAN}>BLUW / SÓCIOS</Label></div>
+                <div className="absolute bottom-4 left-4 right-4 flex justify-between">
+                  <span className="font-display italic text-sm text-white/85">Junior Sabino</span>
+                  <span className="font-display italic text-sm text-white/85">Vitor HRF</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="md:col-span-7 order-1 md:order-2">
+              <Label color={CYAN}>02 — QUEM ESTÁ POR TRÁS</Label>
+              <h2 className="font-display text-4xl md:text-[56px] leading-[1] tracking-tight mt-6">
+                Não somos uma agência.<br/><em className="italic" style={{ color: CYAN }}>Somos especialistas no seu mercado.</em>
+              </h2>
+              <Rule color="rgba(255,255,255,0.18)" />
+              <p className="mt-8 text-[16px] leading-relaxed text-white/80 max-w-[58ch]">
+                Junior Sabino e Vitor HRF têm mais de 8 anos de experiência em marketing e vendas com foco exclusivo no varejo de móveis de médio e alto padrão e planejados.
+              </p>
+              <p className="mt-5 text-[16px] leading-relaxed text-white/80 max-w-[58ch]">
+                Entendemos que o seu cliente não decide em um clique. Que a decisão de compra é longa, começa com uma percepção e amadurece antes do contato. E que o marketing precisa fazer esse trabalho antes do vendedor entrar em cena.
+              </p>
+
+              <div className="mt-12 grid grid-cols-3 gap-px" style={{ background: "rgba(255,255,255,0.15)" }}>
+                {[
+                  ["8+", "Anos em marketing e vendas para varejo premium"],
+                  ["GMD", "Método exclusivo de Gestão e Maturação de Demanda"],
+                  ["100%", "Foco em varejo moveleiro médio, alto padrão e planejados"],
+                ].map(([v, l], i) => (
+                  <div key={i} className="p-6" style={{ background: NAVY }}>
+                    <div className="font-display text-3xl md:text-4xl" style={{ color: CYAN }}>{v}</div>
+                    <p className="mt-3 text-xs text-white/65 leading-relaxed">{l}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────── PROBLEMA ─────────────── */}
+      <section id="problema" className="py-24 md:py-32" style={{ background: PAPER }}>
+        <div className="max-w-[1240px] mx-auto px-6 md:px-10">
+          <div className="max-w-[760px]">
+            <Label color={CYAN}>03 — O CENÁRIO REAL DO SEU MERCADO</Label>
+            <h2 className="font-display text-4xl md:text-[56px] leading-[1.02] tracking-tight mt-6" style={{ color: NAVY }}>
+              Você investe em marketing. Mas o lead que chega <em className="italic" style={{ color: CYAN }}>não tem perfil.</em>
+            </h2>
+            <p className="mt-6 text-[16px] leading-relaxed" style={{ color: "#3A3A4A" }}>
+              Isso não é azar. É sintoma de um marketing feito para volume — não para o ciclo longo de decisão do varejo de alto padrão.
+            </p>
+          </div>
+
+          <div className="mt-16 grid md:grid-cols-2 gap-px" style={{ background: LINE }}>
+            {[
+              ["Só aparece curioso querendo preço", "Você investe em tráfego e recebe contatos que nunca vão comprar um sofá de R$ 15 mil. O vendedor perde tempo, se frustra e culpa o marketing."],
+              ["Recebo muito lead mas fecho quase nada", "Não é o vendedor que é fraco — é o lead que chega despreparado. Sem valor percebido construído antes do contato, qualquer vendedor perde."],
+              ["Invisto em marketing mas não vejo retorno", "Tráfego sem maturação gera volume sem qualidade. O ROI some porque o lead chega frio demais para tomar uma decisão de R$ 30k."],
+              ["Já contratei agência e não funcionou", "Prometeram leads qualificados. Entregaram volume. Seu produto é premium — o sistema de marketing também precisa ser."],
+            ].map(([t, d], i) => (
+              <div key={i} className="p-8 md:p-10" style={{ background: PAPER }}>
+                <div className="flex items-start gap-5">
+                  <span className="font-display text-3xl leading-none mt-1" style={{ color: CYAN }}>✕</span>
+                  <div>
+                    <h3 className="font-display italic text-xl md:text-2xl leading-snug" style={{ color: NAVY }}>"{t}"</h3>
+                    <p className="mt-4 text-[15px] leading-relaxed" style={{ color: "#3A3A4A" }}>{d}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-16 max-w-[820px] font-display text-2xl md:text-[32px] leading-[1.25]" style={{ color: NAVY }}>
+            O digital atrai. Mas o fechamento é humano. O que está faltando não é mais tráfego —<br className="hidden md:block"/>é <em className="italic" style={{ color: CYAN }}>um sistema que prepara o cliente antes de ele chegar no seu showroom.</em>
+          </p>
+        </div>
+      </section>
+
+      {/* ─────────────── MÉTODO GMD ─────────────── */}
+      <section id="metodo" style={{ background: NAVY_DEEP, color: "white" }} className="py-24 md:py-32">
+        <div className="max-w-[1240px] mx-auto px-6 md:px-10">
+          <Label color={CYAN}>04 — NOSSO MÉTODO EXCLUSIVO</Label>
+          <div className="mt-6 grid md:grid-cols-12 gap-10 items-end">
+            <h2 className="md:col-span-8 font-display text-4xl md:text-[72px] leading-[0.98] tracking-tight">
+              GMD — Gestão e <em className="italic" style={{ color: CYAN }}>Maturação de Demanda</em>
+            </h2>
+            <p className="md:col-span-4 text-[15px] leading-relaxed text-white/75">
+              Não é uma campanha. É um sistema que trabalha o 80% da venda que acontece antes do seu vendedor entrar em cena.
+            </p>
+          </div>
+
+          <Rule color="rgba(255,255,255,0.18)" />
+          <div className="mt-10 grid md:grid-cols-2 gap-10 max-w-[1080px]">
+            <p className="text-[15px] leading-relaxed text-white/75">
+              Ninguém acorda e decide comprar um sofá de R$ 30 mil. A decisão é longa — começa com uma percepção, amadurece com conexão e conteúdo, e se concretiza quando o cliente já formou uma opinião sobre quem vai atender ele.
+            </p>
+            <p className="text-[15px] leading-relaxed text-white/75">
+              O GMD estrutura exatamente esse caminho: <span style={{ color: CYAN }}>do primeiro contato digital até o momento em que o lead chega ao seu showroom preparado para comprar</span>, com valor percebido alto e as principais objeções já quebradas.
+            </p>
+          </div>
+
+          {/* timeline */}
+          <div className="mt-20 grid md:grid-cols-4 gap-px" style={{ background: "rgba(255,255,255,0.15)" }}>
+            {[
+              ["01", "MÊS 1", "Fundação", "Diagnóstico, análise do Instagram, planejamento de conteúdo e estruturação do funil de stories."],
+              ["02", "MÊS 2", "Maturação", "Stories como motor de conexão, conteúdo educativo gerando valor percebido e remarketing ativo."],
+              ["03", "MÊS 3", "Consolidação", "Sistema completo rodando, KPIs semanais, lead chegando mais preparado, vendedor com menos atrito."],
+              ["04", "MÊS 4+", "Escala", "Base consolidada, aumento estratégico de verba e campanhas de alta performance."],
+            ].map(([n, m, t, d], i) => (
+              <div key={i} className="p-7" style={{ background: NAVY_DEEP }}>
+                <div className="flex items-baseline justify-between">
+                  <span className="font-display text-4xl" style={{ color: CYAN }}>{n}</span>
+                  <Label color="rgba(255,255,255,0.55)">{m}</Label>
+                </div>
+                <h4 className="font-display text-2xl mt-6">{t}</h4>
+                <p className="mt-3 text-[13px] leading-relaxed text-white/65">{d}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* deliverables */}
+          <div className="mt-24">
+            <Label color="rgba(255,255,255,0.55)">O QUE VOCÊ RECEBE NO GMD</Label>
+            <div className="mt-8 grid md:grid-cols-3 gap-px" style={{ background: "rgba(255,255,255,0.15)" }}>
+              {[
+                ["01", "Análise do Instagram", "Diagnóstico completo de posicionamento e oportunidades"],
+                ["02", "Conteúdo Orgânico", "Planejamento de feed e reels para os 3 primeiros meses"],
+                ["03", "Funil de Stories", "Sequência de conexão com levantada de mão via direct ou WhatsApp"],
+                ["04", "Tráfego Pago", "Campanhas Meta Ads alinhadas ao posicionamento premium"],
+                ["05", "Relatório Semanal", "KPIs que o dono entende — qualidade, volume e conversão"],
+                ["06", "CS Semanal", "Acompanhamento do projeto e ajuste de rota em tempo real"],
+              ].map(([n, t, d], i) => (
+                <div key={i} className="p-7" style={{ background: NAVY_DEEP }}>
+                  <Label color={CYAN}>{n}</Label>
+                  <h4 className="font-display text-xl mt-4">{t}</h4>
+                  <p className="mt-3 text-[13px] leading-relaxed text-white/65">{d}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <blockquote className="mt-20 max-w-[920px]">
+            <p className="font-display italic text-2xl md:text-[34px] leading-[1.2]">
+              "Não vendemos tráfego. Vendemos <span className="not-italic" style={{ color: CYAN }}>um sistema que prepara o mercado para comprar de você.</span>"
+            </p>
+          </blockquote>
+        </div>
+      </section>
+
+      {/* ─────────────── 8PS / CONRADO ─────────────── */}
+      <section style={{ background: PAPER }} className="py-24 md:py-32">
+        <div className="max-w-[1240px] mx-auto px-6 md:px-10">
+          <div className="grid md:grid-cols-12 gap-12 items-center">
+            <div className="md:col-span-5">
+              <div className="aspect-[4/5] overflow-hidden border" style={{ borderColor: LINE }}>
+                <img src={conrado} alt="Conrado Adolpho, criador do Método 8Ps" className="w-full h-full object-cover" />
+              </div>
+            </div>
+            <div className="md:col-span-7">
+              <Label color={CYAN}>05 — LASTRO METODOLÓGICO</Label>
+              <h2 className="font-display text-4xl md:text-[56px] leading-[1] tracking-tight mt-6" style={{ color: NAVY }}>
+                Consultoria certificada <em className="italic" style={{ color: CYAN }}>Método 8Ps.</em>
+              </h2>
+              <Rule />
+              <p className="mt-8 text-[16px] leading-relaxed max-w-[58ch]" style={{ color: "#3A3A4A" }}>
+                A Bluw é certificada oficialmente pelo Método 8Ps de Conrado Adolpho — referência brasileira em marketing digital aplicado a varejo. Isso significa um método validado, treinamento contínuo e uma estrutura comprovada por trás de cada decisão estratégica.
+              </p>
+              <div className="mt-10 flex items-center gap-6">
+                <img src={selo} alt="Selo de certificação 8Ps" className="w-24 h-24 object-contain" />
+                <div>
+                  <div className="font-display text-xl" style={{ color: NAVY }}>Consultoria Certificada 8Ps</div>
+                  <div className="mt-1"><Label color="#7A7A88">MÉTODO VALIDADO · CONRADO ADOLPHO</Label></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────── PROCESSO ─────────────── */}
+      <section className="py-24 md:py-32" style={{ background: "white" }}>
+        <div className="max-w-[1240px] mx-auto px-6 md:px-10">
+          <div className="grid md:grid-cols-12 gap-10">
+            <div className="md:col-span-5">
+              <Label color={CYAN}>06 — COMO FUNCIONA NA PRÁTICA</Label>
+              <h2 className="font-display text-4xl md:text-[56px] leading-[1] tracking-tight mt-6" style={{ color: NAVY }}>
+                Três passos para ter <em className="italic" style={{ color: CYAN }}>previsibilidade</em> na sua loja.
+              </h2>
+              <p className="mt-6 text-[15px] leading-relaxed" style={{ color: "#3A3A4A" }}>
+                Nenhuma proposta antes do diagnóstico. Porque resultado real começa por entender o seu negócio de verdade.
+              </p>
+            </div>
+            <div className="md:col-span-7">
+              {[
+                ["01", "Diagnóstico Estratégico", "Em 60 minutos, mapeamos onde você está perdendo cliente qualificado, quais são as principais oportunidades e o plano de ataque para os primeiros 90 dias. Clareza real, sem promessa vaga."],
+                ["02", "Implementação do GMD", "Estruturamos e implementamos o sistema completo de maturação de demanda. Cada entrega tem propósito e indicador associado. Você acompanha em números que fazem sentido para o seu negócio."],
+                ["03", "Acompanhamento Contínuo", "CS e relatório semanais, otimização contínua. O sistema fica mais inteligente a cada ciclo. Seu negócio fica mais previsível a cada mês."],
+              ].map(([n, t, d], i) => (
+                <div key={i}>
+                  <Rule />
+                  <div className="py-10 grid grid-cols-12 gap-6">
+                    <div className="col-span-2 font-display text-4xl md:text-5xl" style={{ color: CYAN }}>{n}</div>
+                    <div className="col-span-10">
+                      <h3 className="font-display text-2xl md:text-3xl" style={{ color: NAVY }}>{t}</h3>
+                      <p className="mt-4 text-[15px] leading-relaxed max-w-[58ch]" style={{ color: "#3A3A4A" }}>{d}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+              <Rule />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────── CTA FINAL ─────────────── */}
+      <section id="contato" style={{ background: NAVY, color: "white" }} className="py-28 md:py-36 relative overflow-hidden">
+        <div aria-hidden className="absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full" style={{ background: `radial-gradient(circle, ${CYAN}1A 0%, transparent 70%)` }} />
+        <div className="max-w-[1240px] mx-auto px-6 md:px-10 relative">
+          <div className="grid md:grid-cols-12 gap-12 items-end">
+            <div className="md:col-span-8">
+              <Label color={CYAN}>07 — AGENDE SEU DIAGNÓSTICO ESTRATÉGICO</Label>
+              <h2 className="font-display text-4xl md:text-[76px] leading-[0.98] tracking-tight mt-6">
+                Crescimento não é sorte.<br/>É <em className="italic" style={{ color: CYAN }}>método, maturação e acompanhamento.</em>
+              </h2>
+              <p className="mt-8 text-[16px] text-white/75 max-w-[58ch]">
+                Gratuito. Sem compromisso. Com clareza real sobre o que está travando o crescimento da sua loja.
+              </p>
+              <a href="#contato" className="mt-10 inline-flex items-center gap-3 font-mono-label text-[11px] px-8 py-4" style={{ background: CYAN, color: NAVY }}>
+                QUERO AGENDAR MEU DIAGNÓSTICO <span aria-hidden>→</span>
+              </a>
+            </div>
+            <div className="md:col-span-4 grid grid-cols-2 gap-px" style={{ background: "rgba(255,255,255,0.15)" }}>
+              {[
+                ["Certificação 8Ps", "Conrado Adolpho"],
+                ["Método GMD", "Exclusivo Bluw"],
+                ["8+ Anos", "Marketing & Vendas"],
+                ["Foco Exclusivo", "Varejo Moveleiro Premium"],
+              ].map(([t, s], i) => (
+                <div key={i} className="p-5" style={{ background: NAVY }}>
+                  <div className="font-display text-base" style={{ color: CYAN }}>{t}</div>
+                  <div className="mt-1 text-[11px] text-white/65">{s}</div>
                 </div>
               ))}
             </div>
@@ -381,236 +409,20 @@ function Index() {
         </div>
       </section>
 
-      {/* QUEM SOMOS - BLUW */}
-      <section id="bluw" className="relative">
-        {/* Founders banner */}
-        <div className="relative overflow-hidden" style={{ backgroundColor: NAVY }}>
-          <img src={bluwFounders} alt="Sócios Bluw Comunicação" className="w-full h-auto object-cover opacity-90" />
-          <div
-            className="absolute inset-0 flex items-center justify-center px-8"
-            style={{
-              background:
-                "linear-gradient(180deg, transparent 0%, transparent 50%, rgba(1,35,63,0.4) 100%), radial-gradient(ellipse at center, rgba(1,35,63,0.55) 0%, rgba(1,35,63,0.15) 50%, transparent 80%)",
-            }}
-          >
-            <div className="text-center max-w-2xl">
-              <div className="flex items-center justify-center gap-4 mb-6">
-                <span className="h-px w-10" style={{ backgroundColor: COOPER_LIGHT }} />
-                <span className="text-[10px] uppercase" style={{ color: COOPER_LIGHT, letterSpacing: "0.4em" }}>
-                  Bluw Comunicação
-                </span>
-                <span className="h-px w-10" style={{ backgroundColor: COOPER_LIGHT }} />
-              </div>
-              <h2 className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.1]" style={{ color: CREAM, fontWeight: 300 }}>
-                Especialistas em marketing e performance para lojas de <em className="italic" style={{ color: COOPER_LIGHT }}>móveis de médio e alto padrão</em>.
-              </h2>
-            </div>
+      {/* ─────────────── FOOTER ─────────────── */}
+      <footer style={{ background: NAVY_DEEP, color: "white" }} className="py-12">
+        <div className="max-w-[1240px] mx-auto px-6 md:px-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div className="flex items-baseline gap-3">
+            <span className="font-display text-xl">Bluw<span style={{ color: CYAN }}>.</span></span>
+            <Label color="rgba(255,255,255,0.5)">COMUNICAÇÃO</Label>
           </div>
-        </div>
-
-        {/* Bluw narrative */}
-        <div className="py-28 lg:py-36" style={{ backgroundColor: CREAM }}>
-          <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
-            <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
-              <div className="lg:col-span-7">
-                <Eyebrow>Quem somos</Eyebrow>
-                <h3 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-10" style={{ fontWeight: 300 }}>
-                  Dois sócios. Um método.<br />
-                  <em className="italic" style={{ color: COOPER }}>Um nicho.</em>
-                </h3>
-                <p className="text-lg leading-[1.7] font-light mb-6" style={{ color: "rgba(1,35,63,0.75)" }}>
-                  Por trás da Bluw estão dois sócios obcecados por método, dados e estética. A combinação rara de
-                  estratégia comercial com direção criativa de alto padrão — feita especificamente para o universo
-                  dos móveis planejados.
-                </p>
-                <p className="text-lg leading-[1.7] font-light" style={{ color: "rgba(1,35,63,0.75)" }}>
-                  Não somos uma agência que faz "tudo para todos". Nós nos especializamos em um nicho, dominamos seu
-                  funil e entregamos um sistema — não promessas.
-                </p>
-              </div>
-
-              <div className="lg:col-span-5">
-                <div className="grid grid-cols-2 gap-px" style={{ backgroundColor: "rgba(1,35,63,0.12)" }}>
-                  {[
-                    { n: "+40", l: "Lojas atendidas" },
-                    { n: "8 anos", l: "No nicho" },
-                    { n: "100%", l: "Alto padrão" },
-                    { n: "8Ps", l: "Certificados" },
-                  ].map((s, i) => (
-                    <div key={i} className="p-8 lg:p-10" style={{ backgroundColor: CREAM }}>
-                      <div className="font-display text-4xl lg:text-5xl mb-3" style={{ color: COOPER, fontWeight: 300 }}>
-                        {s.n}
-                      </div>
-                      <div className="text-[10px] uppercase" style={{ color: "rgba(1,35,63,0.55)", letterSpacing: "0.28em" }}>
-                        {s.l}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+          <div className="flex items-center gap-6">
+            <Label color="rgba(255,255,255,0.55)">@ojuniorsabino</Label>
+            <Label color="rgba(255,255,255,0.55)">@vitorhrf</Label>
           </div>
-        </div>
-      </section>
-
-      {/* CONRADO / LASTRO */}
-      <section className="py-28 lg:py-40" style={{ backgroundColor: NAVY, color: CREAM }}>
-        <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-            <div className="lg:col-span-5">
-              <div className="grid grid-cols-5 gap-3">
-                <div className="col-span-3 relative">
-                  <div className="absolute -inset-2 border" style={{ borderColor: COOPER, opacity: 0.4 }} />
-                  <img src={conrado2} alt="Conrado Adolpho" className="relative w-full h-auto object-cover" />
-                </div>
-                <div className="col-span-2 mt-12">
-                  <img src={conrado3} alt="Conrado Adolpho" className="w-full h-auto object-cover" />
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-7">
-              <Eyebrow tone="cream">Lastro</Eyebrow>
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-10" style={{ color: CREAM, fontWeight: 300 }}>
-                Certificados pelo criador do <em className="italic" style={{ color: COOPER_LIGHT }}>Método 8Ps</em>.
-              </h2>
-              <p className="text-lg leading-[1.7] mb-6 font-light" style={{ color: "rgba(255,239,213,0.7)" }}>
-                Conrado Adolpho é referência em marketing digital no Brasil há mais de duas décadas. Criador do
-                Método 8Ps, formou milhares de profissionais e certifica apenas agências que provam aplicação real
-                do método.
-              </p>
-              <p className="text-lg leading-[1.7] font-light" style={{ color: "rgba(255,239,213,0.7)" }}>
-                A Bluw é uma dessas. Não somos uma agência que ouviu falar — somos uma agência auditada.
-              </p>
-
-              <div className="flex items-center gap-6 mt-12 pt-10 border-t" style={{ borderColor: "rgba(255,239,213,0.15)" }}>
-                <img src={selo} alt="Selo 8Ps" className="w-20 h-20 object-contain" />
-                <div>
-                  <div className="text-[10px] uppercase mb-2" style={{ color: COOPER_LIGHT, letterSpacing: "0.32em" }}>
-                    Agência Certificada
-                  </div>
-                  <div className="font-display text-2xl" style={{ color: CREAM, fontWeight: 400 }}>
-                    Método 8Ps
-                  </div>
-                  <div className="text-xs italic mt-1 font-light" style={{ color: "rgba(255,239,213,0.5)", fontFamily: "Fraunces" }}>
-                    Powered by Conrado Adolpho
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* COMO COMEÇAR */}
-      <section className="py-28 lg:py-40" style={{ backgroundColor: CREAM }}>
-        <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-12 gap-12 mb-20">
-            <div className="lg:col-span-7">
-              <Eyebrow>Como começar</Eyebrow>
-              <h2 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.02]" style={{ fontWeight: 300 }}>
-                Três passos até a <em className="italic" style={{ color: COOPER }}>previsibilidade</em>.
-              </h2>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
-            {[
-              { n: "01", t: "Diagnóstico", d: "Conversa estratégica de 45 minutos. Mapeamos onde sua loja está perdendo dinheiro hoje." },
-              { n: "02", t: "Plano GMD", d: "Desenhamos o sistema sob medida para o seu showroom, seu ticket e sua região." },
-              { n: "03", t: "Implantação", d: "Em 12 semanas você opera com previsibilidade. Sem reinventar a roda toda segunda." },
-            ].map((p) => (
-              <div key={p.n} className="relative">
-                <div className="font-display text-8xl mb-6 leading-none" style={{ color: COOPER, fontWeight: 300, opacity: 0.9 }}>
-                  {p.n}
-                </div>
-                <div className="font-display text-3xl mb-5" style={{ fontWeight: 400 }}>
-                  {p.t}
-                </div>
-                <p className="text-base leading-[1.7] font-light" style={{ color: "rgba(1,35,63,0.7)" }}>
-                  {p.d}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA FINAL */}
-      <section id="contato" className="relative overflow-hidden" style={{ backgroundColor: NAVY_DEEP, color: CREAM }}>
-        <div
-          className="absolute inset-0 opacity-[0.12] pointer-events-none"
-          style={{
-            backgroundImage:
-              "radial-gradient(ellipse at 50% 0%, rgba(147,113,82,0.6) 0%, transparent 60%)",
-          }}
-        />
-        <div
-          className="absolute inset-0 opacity-[0.05] pointer-events-none"
-          style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
-          }}
-        />
-
-        <div className="relative max-w-5xl mx-auto px-8 lg:px-16 py-32 lg:py-44 text-center">
-          <div className="flex items-center justify-center gap-4 mb-12">
-            <span className="h-px w-16" style={{ backgroundColor: COOPER }} />
-            <span className="text-[10px] uppercase" style={{ color: COOPER_LIGHT, letterSpacing: "0.4em" }}>
-              Agendar diagnóstico
-            </span>
-            <span className="h-px w-16" style={{ backgroundColor: COOPER }} />
-          </div>
-
-          <h2 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.98]" style={{ color: CREAM, fontWeight: 300 }}>
-            Crescimento não é sorte.
-            <br />
-            <em className="italic" style={{ color: COOPER_LIGHT }}>É método.</em>
-          </h2>
-
-          <p className="mt-12 text-lg max-w-2xl mx-auto font-light leading-[1.7]" style={{ color: "rgba(255,239,213,0.65)" }}>
-            Se sua loja de móveis fatura acima de R$ 200 mil/mês e quer parar de viver na corda bamba, vamos
-            conversar. Diagnóstico gratuito e sem compromisso.
-          </p>
-
-          <div className="mt-14 flex flex-col sm:flex-row gap-4 justify-center">
-            <PrimaryCta>Quero agendar agora</PrimaryCta>
-            <GhostCta>Falar pelo WhatsApp</GhostCta>
-          </div>
-
-          <div className="mt-24 pt-12 border-t flex flex-col md:flex-row items-center justify-between gap-6" style={{ borderColor: "rgba(255,239,213,0.12)" }}>
-            <div className="flex items-center gap-4">
-              <img src={selo} alt="Selo 8Ps" className="w-12 h-12 object-contain" />
-              <div className="text-left">
-                <div className="text-[9px] uppercase" style={{ color: COOPER_LIGHT, letterSpacing: "0.4em" }}>
-                  Agência Certificada
-                </div>
-                <div className="text-xs mt-1 italic font-light" style={{ color: "rgba(255,239,213,0.6)", fontFamily: "Fraunces" }}>
-                  Método 8Ps · Conrado Adolpho
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center gap-8 text-[10px] uppercase" style={{ color: "rgba(255,239,213,0.5)", letterSpacing: "0.28em" }}>
-              <span>@bluwcomunicacao</span>
-              <span style={{ color: COOPER }}>·</span>
-              <span>contato@bluw.com.br</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer style={{ backgroundColor: "#000814", color: "rgba(255,239,213,0.4)" }}>
-        <div className="max-w-[1440px] mx-auto px-8 lg:px-16 py-10 flex flex-col md:flex-row items-center justify-between gap-3 text-[10px] uppercase" style={{ letterSpacing: "0.28em" }}>
-          <div className="flex items-center gap-3">
-            <div className="font-display text-lg italic" style={{ color: CREAM, letterSpacing: "0" }}>
-              Bluw
-            </div>
-            <span style={{ color: COOPER }}>Comunicação</span>
-          </div>
-          <div>© {new Date().getFullYear()} · Todos os direitos reservados</div>
+          <Label color="rgba(255,255,255,0.4)">© BLUW COMUNICAÇÃO</Label>
         </div>
       </footer>
-    </main>
+    </div>
   );
 }
