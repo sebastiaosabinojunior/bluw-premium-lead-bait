@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import founders from "@/assets/bluw-founders-premium.png";
+import founders from "@/assets/bluw-founders-kv.jpg";
 import conrado from "@/assets/conrado-hero.jpg";
 import selo from "@/assets/selo-8ps.png";
 
@@ -15,13 +15,16 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-/* Bluw palette */
-const NAVY = "#010B3C";
-const NAVY_DEEP = "#00061F";
-const CYAN = "#2BADCD";
+/* Bluw × Conrado Adolpho 8Ps palette */
+const NAVY = "#033059";       // deep blue
+const NAVY_DEEP = "#01233F";  // dark navy
+const NAVY_BLACK = "#01101E";
+const CYAN = "#C9A36A";       // copper highlight (kept name for compat)
+const COPPER = "#937152";     // brand copper
+const CREAM = "#FFEFD5";      // cream highlight
 const INK = "#0A0A14";
-const PAPER = "#F4F2EC";
-const LINE = "rgba(10,10,20,0.14)";
+const PAPER = "#FFEFD5";      // cream as page background
+const LINE = "rgba(1,35,63,0.18)";
 
 const Rule = ({ color = LINE }: { color?: string }) => (
   <div className="w-full h-px" style={{ backgroundColor: color }} />
