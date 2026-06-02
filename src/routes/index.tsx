@@ -65,13 +65,25 @@ function Index() {
       </nav>
 
       {/* ─────────────── HERO ─────────────── */}
-      <header id="top" style={{ background: `linear-gradient(160deg, ${NAVY_DEEP} 0%, ${NAVY} 55%, #002169 100%)`, color: "white" }} className="relative overflow-hidden">
-        <div aria-hidden className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full" style={{ background: `radial-gradient(circle, ${CYAN}1A 0%, transparent 70%)` }} />
+      <header id="top" style={{ background: `linear-gradient(160deg, ${NAVY_BLACK} 0%, ${NAVY_DEEP} 55%, ${NAVY} 100%)`, color: CREAM }} className="relative overflow-hidden">
+        <div aria-hidden className="absolute -top-40 -right-40 w-[640px] h-[640px] rounded-full" style={{ background: `radial-gradient(circle, ${COPPER}26 0%, transparent 70%)` }} />
+        {/* KV signature copper arcs */}
+        <svg aria-hidden viewBox="0 0 1200 800" preserveAspectRatio="none" className="absolute inset-0 w-full h-full opacity-70">
+          <defs>
+            <linearGradient id="heroCopper" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor={COPPER} stopOpacity="0.9" />
+              <stop offset="60%" stopColor={CREAM} stopOpacity="0.7" />
+              <stop offset="100%" stopColor={COPPER} stopOpacity="0.2" />
+            </linearGradient>
+          </defs>
+          <circle cx="1000" cy="220" r="340" fill="none" stroke="url(#heroCopper)" strokeWidth="1.8" strokeDasharray="900 2000" strokeDashoffset="-80" />
+          <circle cx="1080" cy="240" r="260" fill="none" stroke={COPPER} strokeOpacity="0.35" strokeWidth="1" strokeDasharray="600 2000" strokeDashoffset="-180" />
+        </svg>
         <div className="max-w-[1240px] mx-auto px-6 md:px-10 pt-20 md:pt-28 pb-20 md:pb-28 relative">
           {/* eyebrow row */}
           <div className="flex items-center gap-4 mb-10">
-            <span className="h-px w-14" style={{ background: CYAN }} />
-            <Label color="rgba(255,255,255,0.85)">ESPECIALISTAS EM VAREJO MOVELEIRO DE MÉDIO E ALTO PADRÃO</Label>
+            <span className="h-px w-14" style={{ background: COPPER }} />
+            <Label color={CREAM}>ESPECIALISTAS EM VAREJO MOVELEIRO DE MÉDIO E ALTO PADRÃO</Label>
           </div>
 
           {/* headline grid */}
@@ -88,13 +100,13 @@ function Index() {
           </div>
 
           <div className="mt-14 flex flex-col sm:flex-row gap-5 sm:items-center">
-            <a href="#contato" className="font-mono-label text-[11px] px-8 py-4 inline-flex items-center justify-center gap-3 transition-colors" style={{ background: CYAN, color: NAVY }}>
+            <a href="#contato" className="font-mono-label text-[11px] px-8 py-4 inline-flex items-center justify-center gap-3 transition-colors hover:opacity-90" style={{ background: COPPER, color: NAVY_BLACK }}>
               AGENDAR DIAGNÓSTICO <span aria-hidden>→</span>
             </a>
-            <a href="#metodo" className="font-mono-label text-[11px] px-8 py-4 inline-flex items-center justify-center border transition-colors" style={{ borderColor: "rgba(255,255,255,0.35)", color: "white" }}>
+            <a href="#metodo" className="font-mono-label text-[11px] px-8 py-4 inline-flex items-center justify-center border transition-colors" style={{ borderColor: `${CREAM}55`, color: CREAM }}>
               CONHECER O MÉTODO
             </a>
-            <span className="font-mono-label text-[10px] text-white/55 sm:ml-2">DIAGNÓSTICO GRATUITO · SEM COMPROMISSO</span>
+            <span className="font-mono-label text-[10px] sm:ml-2" style={{ color: `${CREAM}99` }}>DIAGNÓSTICO GRATUITO · SEM COMPROMISSO</span>
           </div>
 
           {/* ticker strip */}
