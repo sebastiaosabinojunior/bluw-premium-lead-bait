@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import founders from "@/assets/bluw-founders-cut.png";
+import founders from "@/assets/bluw-founders-premium.png";
 import conrado from "@/assets/conrado-hero.jpg";
 import selo from "@/assets/selo-8ps.png";
 
@@ -159,13 +159,41 @@ function Index() {
         <div className="max-w-[1240px] mx-auto px-6 md:px-10">
           <div className="grid md:grid-cols-12 gap-12 items-end">
             <div className="md:col-span-5 order-2 md:order-1 relative">
-              <div className="aspect-[4/5] relative" style={{ background: `linear-gradient(180deg, ${NAVY_DEEP} 0%, ${NAVY} 100%)` }}>
-                <div className="absolute inset-0 border" style={{ borderColor: `${CYAN}55` }} />
-                <img src={founders} alt="Junior Sabino e Vitor HRF, sócios da Bluw Comunicação" className="absolute inset-0 w-full h-full object-contain object-bottom" />
-                <div className="absolute top-4 left-4"><Label color={CYAN}>BLUW / SÓCIOS</Label></div>
-                <div className="absolute bottom-4 left-4 right-4 flex justify-between">
-                  <span className="font-display italic text-sm text-white/85">Junior Sabino</span>
-                  <span className="font-display italic text-sm text-white/85">Vitor HRF</span>
+              <div
+                className="aspect-[4/5] relative overflow-hidden"
+                style={{
+                  background: `radial-gradient(ellipse at 50% 35%, ${CYAN}22 0%, ${NAVY} 45%, ${NAVY_DEEP} 100%)`,
+                }}
+              >
+                {/* hairline frame */}
+                <div className="absolute inset-4 border pointer-events-none" style={{ borderColor: `${CYAN}40` }} />
+                {/* spotlight wash */}
+                <div
+                  aria-hidden
+                  className="absolute inset-0"
+                  style={{ background: `radial-gradient(ellipse at 50% 80%, ${NAVY_DEEP} 0%, transparent 70%)` }}
+                />
+                {/* portrait */}
+                <img
+                  src={founders}
+                  alt="Junior Sabino e Vitor HRF, sócios da Bluw Comunicação"
+                  className="absolute inset-x-0 bottom-0 w-full h-[94%] object-contain object-bottom"
+                  style={{ filter: "drop-shadow(0 30px 40px rgba(0,0,0,0.55))" }}
+                />
+                {/* floor reflection line */}
+                <div className="absolute bottom-[6%] left-[12%] right-[12%] h-px" style={{ background: `linear-gradient(90deg, transparent, ${CYAN}66, transparent)` }} />
+                {/* labels */}
+                <div className="absolute top-6 left-6 flex items-center gap-3">
+                  <span className="h-px w-6" style={{ background: CYAN }} />
+                  <Label color={CYAN}>BLUW / SÓCIOS</Label>
+                </div>
+                <div className="absolute top-6 right-6">
+                  <Label color="rgba(255,255,255,0.55)">FIG. 02</Label>
+                </div>
+                <div className="absolute bottom-5 left-6 right-6 flex justify-between items-baseline">
+                  <span className="font-display italic text-base text-white/90">Junior Sabino</span>
+                  <span className="font-mono-label text-[9px] text-white/40">&</span>
+                  <span className="font-display italic text-base text-white/90">Vitor HRF</span>
                 </div>
               </div>
             </div>
