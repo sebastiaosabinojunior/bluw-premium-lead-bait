@@ -164,39 +164,47 @@ function Index() {
             <div className="md:col-span-5 order-2 md:order-1 relative">
               <div
                 className="aspect-[4/5] relative overflow-hidden"
-                style={{
-                  background: `radial-gradient(ellipse at 50% 35%, ${CYAN}22 0%, ${NAVY} 45%, ${NAVY_DEEP} 100%)`,
-                }}
+                style={{ background: NAVY_DEEP }}
               >
-                {/* hairline frame */}
-                <div className="absolute inset-4 border pointer-events-none" style={{ borderColor: `${CYAN}40` }} />
-                {/* spotlight wash */}
-                <div
-                  aria-hidden
-                  className="absolute inset-0"
-                  style={{ background: `radial-gradient(ellipse at 50% 80%, ${NAVY_DEEP} 0%, transparent 70%)` }}
-                />
                 {/* portrait */}
                 <img
                   src={founders}
                   alt="Junior Sabino e Vitor HRF, sócios da Bluw Comunicação"
-                  className="absolute inset-x-0 bottom-0 w-full h-[94%] object-contain object-bottom"
-                  style={{ filter: "drop-shadow(0 30px 40px rgba(0,0,0,0.55))" }}
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
-                {/* floor reflection line */}
-                <div className="absolute bottom-[6%] left-[12%] right-[12%] h-px" style={{ background: `linear-gradient(90deg, transparent, ${CYAN}66, transparent)` }} />
+                {/* copper arc — KV signature */}
+                <svg
+                  aria-hidden
+                  viewBox="0 0 400 500"
+                  preserveAspectRatio="none"
+                  className="absolute inset-0 w-full h-full pointer-events-none"
+                >
+                  <defs>
+                    <linearGradient id="copperArc" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stopColor={COPPER} stopOpacity="0.95" />
+                      <stop offset="55%" stopColor={CREAM} stopOpacity="0.85" />
+                      <stop offset="100%" stopColor={COPPER} stopOpacity="0.4" />
+                    </linearGradient>
+                  </defs>
+                  <circle cx="320" cy="180" r="160" fill="none" stroke="url(#copperArc)" strokeWidth="2.2" strokeDasharray="500 1000" strokeDashoffset="-30" />
+                  <circle cx="80" cy="380" r="120" fill="none" stroke={COPPER} strokeOpacity="0.55" strokeWidth="1.4" strokeDasharray="320 1000" strokeDashoffset="-100" />
+                </svg>
+                {/* bottom navy gradient */}
+                <div className="absolute inset-x-0 bottom-0 h-1/2" style={{ background: `linear-gradient(180deg, transparent 0%, ${NAVY_BLACK} 100%)` }} />
+                {/* hairline frame */}
+                <div className="absolute inset-4 border pointer-events-none" style={{ borderColor: `${COPPER}55` }} />
                 {/* labels */}
                 <div className="absolute top-6 left-6 flex items-center gap-3">
-                  <span className="h-px w-6" style={{ background: CYAN }} />
-                  <Label color={CYAN}>BLUW / SÓCIOS</Label>
+                  <span className="h-px w-6" style={{ background: COPPER }} />
+                  <Label color={CREAM}>BLUW / SÓCIOS</Label>
                 </div>
                 <div className="absolute top-6 right-6">
-                  <Label color="rgba(255,255,255,0.55)">FIG. 02</Label>
+                  <Label color="rgba(255,239,213,0.55)">FIG. 02</Label>
                 </div>
                 <div className="absolute bottom-5 left-6 right-6 flex justify-between items-baseline">
-                  <span className="font-display italic text-base text-white/90">Junior Sabino</span>
-                  <span className="font-mono-label text-[9px] text-white/40">&</span>
-                  <span className="font-display italic text-base text-white/90">Vitor HRF</span>
+                  <span className="font-display italic text-base" style={{ color: CREAM }}>Junior Sabino</span>
+                  <span className="font-mono-label text-[9px]" style={{ color: `${COPPER}` }}>&</span>
+                  <span className="font-display italic text-base" style={{ color: CREAM }}>Vitor HRF</span>
                 </div>
               </div>
             </div>
