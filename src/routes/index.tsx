@@ -367,10 +367,39 @@ function Index() {
       {/* ─────────────── 8PS / CONRADO ─────────────── */}
       <section style={{ background: PAPER }} className="py-24 md:py-32">
         <div className="max-w-[1240px] mx-auto px-6 md:px-10">
-          <div className="grid md:grid-cols-12 gap-12 items-center">
+          <div className="grid md:grid-cols-12 gap-12 items-end">
             <div className="md:col-span-5">
-              <div className="aspect-[4/5] overflow-hidden border" style={{ borderColor: LINE }}>
-                <img src={conrado} alt="Conrado Adolpho, criador do Método 8Ps" className="w-full h-full object-cover" />
+              <div className="relative aspect-[4/5]">
+                {/* copper halo blending into cream bg */}
+                <div
+                  aria-hidden
+                  className="absolute inset-0"
+                  style={{
+                    background: `radial-gradient(55% 50% at 50% 40%, ${COPPER}33 0%, ${COPPER}12 40%, transparent 70%)`,
+                  }}
+                />
+                {/* hairline arc */}
+                <svg aria-hidden viewBox="0 0 400 500" preserveAspectRatio="none" className="absolute inset-0 w-full h-full pointer-events-none">
+                  <circle cx="200" cy="230" r="170" fill="none" stroke={COPPER} strokeOpacity="0.5" strokeWidth="1.2" strokeDasharray="520 2000" strokeDashoffset="-60" />
+                </svg>
+                <img
+                  src={conrado}
+                  alt="Conrado Adolpho, criador do Método 8Ps"
+                  className="absolute inset-0 w-full h-full object-contain"
+                  style={{ filter: `drop-shadow(0 18px 30px ${NAVY}55)` }}
+                />
+                {/* floor fade into PAPER */}
+                <div className="absolute inset-x-0 bottom-0 h-1/5 pointer-events-none" style={{ background: `linear-gradient(180deg, transparent 0%, ${PAPER} 95%)` }} />
+                <div className="absolute top-2 left-0 flex items-center gap-3">
+                  <span className="h-px w-6" style={{ background: COPPER }} />
+                  <Label color={NAVY}>MÉTODO 8PS</Label>
+                </div>
+                <div className="absolute top-2 right-0">
+                  <Label color="#7A7A88">FIG. 05</Label>
+                </div>
+              </div>
+              <div className="mt-3 px-1">
+                <span className="font-display italic text-base md:text-lg" style={{ color: NAVY }}>Conrado Adolpho</span>
               </div>
             </div>
             <div className="md:col-span-7">
