@@ -174,18 +174,16 @@ function Index() {
         <div className="max-w-[1240px] mx-auto px-6 md:px-10">
           <div className="grid md:grid-cols-12 gap-12 items-end">
             <div className="md:col-span-5 order-2 md:order-1 relative">
-              <div
-                className="aspect-[4/5] relative overflow-hidden"
-                style={{ background: NAVY_DEEP }}
-              >
-                {/* portrait */}
-                <img
-                  src={founders}
-                  alt="Junior Sabino e Vitor HRF, sócios da Bluw Comunicação"
-                  className="absolute inset-0 w-full h-full object-cover"
-                  style={{ objectPosition: "center 18%" }}
+              <div className="relative aspect-[4/5]">
+                {/* copper radial halo behind subjects */}
+                <div
+                  aria-hidden
+                  className="absolute inset-0"
+                  style={{
+                    background: `radial-gradient(60% 55% at 50% 42%, ${COPPER}40 0%, ${COPPER}1A 35%, transparent 70%)`,
+                  }}
                 />
-                {/* copper arc — KV signature */}
+                {/* KV signature arcs */}
                 <svg
                   aria-hidden
                   viewBox="0 0 400 500"
@@ -194,31 +192,36 @@ function Index() {
                 >
                   <defs>
                     <linearGradient id="copperArc" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0%" stopColor={COPPER} stopOpacity="0.95" />
-                      <stop offset="55%" stopColor={CREAM} stopOpacity="0.85" />
-                      <stop offset="100%" stopColor={COPPER} stopOpacity="0.4" />
+                      <stop offset="0%" stopColor={COPPER} stopOpacity="0.9" />
+                      <stop offset="55%" stopColor={CREAM} stopOpacity="0.7" />
+                      <stop offset="100%" stopColor={COPPER} stopOpacity="0.25" />
                     </linearGradient>
                   </defs>
-                  <circle cx="320" cy="180" r="160" fill="none" stroke="url(#copperArc)" strokeWidth="2.2" strokeDasharray="500 1000" strokeDashoffset="-30" />
-                  <circle cx="80" cy="380" r="120" fill="none" stroke={COPPER} strokeOpacity="0.55" strokeWidth="1.4" strokeDasharray="320 1000" strokeDashoffset="-100" />
+                  <circle cx="200" cy="230" r="180" fill="none" stroke="url(#copperArc)" strokeWidth="1.6" strokeDasharray="700 2000" strokeDashoffset="-80" />
+                  <circle cx="200" cy="230" r="150" fill="none" stroke={COPPER} strokeOpacity="0.35" strokeWidth="1" strokeDasharray="420 2000" strokeDashoffset="-160" />
                 </svg>
-                {/* bottom navy gradient */}
-                <div className="absolute inset-x-0 bottom-0 h-1/3" style={{ background: `linear-gradient(180deg, transparent 0%, ${NAVY_BLACK} 100%)` }} />
-                {/* hairline frame */}
-                <div className="absolute inset-4 border pointer-events-none" style={{ borderColor: `${COPPER}55` }} />
-                {/* labels */}
-                <div className="absolute top-6 left-6 flex items-center gap-3">
+                {/* portrait cutout — blends with section bg */}
+                <img
+                  src={founders}
+                  alt="Junior Sabino e Vitor HRF, sócios da Bluw Comunicação"
+                  className="absolute inset-0 w-full h-full object-contain"
+                  style={{ filter: `drop-shadow(0 24px 40px ${NAVY_BLACK}99)` }}
+                />
+                {/* bottom floor fade — anchors the figures to the section */}
+                <div className="absolute inset-x-0 bottom-0 h-1/4 pointer-events-none" style={{ background: `linear-gradient(180deg, transparent 0%, ${NAVY} 90%)` }} />
+                {/* editorial labels */}
+                <div className="absolute top-2 left-0 flex items-center gap-3">
                   <span className="h-px w-6" style={{ background: COPPER }} />
                   <Label color={CREAM}>BLUW / SÓCIOS</Label>
                 </div>
-                <div className="absolute top-6 right-6">
+                <div className="absolute top-2 right-0">
                   <Label color="rgba(255,239,213,0.55)">FIG. 02</Label>
                 </div>
-                <div className="absolute bottom-5 left-6 right-6 flex justify-between items-baseline">
-                  <span className="font-display italic text-base" style={{ color: CREAM }}>Junior Sabino</span>
-                  <span className="font-mono-label text-[9px]" style={{ color: `${COPPER}` }}>&</span>
-                  <span className="font-display italic text-base" style={{ color: CREAM }}>Vitor HRF</span>
-                </div>
+              </div>
+              <div className="mt-4 flex items-baseline justify-between gap-3 px-1">
+                <span className="font-display italic text-base md:text-lg" style={{ color: CREAM }}>Junior Sabino</span>
+                <span className="font-mono-label text-[10px]" style={{ color: COPPER }}>&</span>
+                <span className="font-display italic text-base md:text-lg" style={{ color: CREAM }}>Vitor HRF</span>
               </div>
             </div>
 
