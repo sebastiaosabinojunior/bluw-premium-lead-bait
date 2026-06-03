@@ -171,7 +171,16 @@ function Index() {
 
       {/* ─────────────── QUEM SOMOS (BLUW) ─────────────── */}
       <section id="bluw" style={{ background: NAVY, color: "white" }} className="py-24 md:py-32 relative overflow-hidden">
-        <div className="max-w-[1240px] mx-auto px-6 md:px-10">
+        {/* plaster texture overlay — same family as hero KV */}
+        <svg aria-hidden className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.35] mix-blend-overlay">
+          <filter id="plasterBluw">
+            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" />
+            <feColorMatrix values="0 0 0 0 0.04  0 0 0 0 0.18  0 0 0 0 0.35  0 0 0 0.55 0" />
+          </filter>
+          <rect width="100%" height="100%" filter="url(#plasterBluw)" />
+        </svg>
+        <div aria-hidden className="absolute inset-0 pointer-events-none" style={{ background: `radial-gradient(120% 80% at 20% 30%, ${NAVY_DEEP} 0%, transparent 60%), radial-gradient(100% 80% at 90% 90%, ${NAVY_BLACK} 0%, transparent 55%)` }} />
+        <div className="max-w-[1240px] mx-auto px-6 md:px-10 relative">
           <div className="grid md:grid-cols-12 gap-12 items-end">
             <div className="md:col-span-5 order-2 md:order-1 relative">
               <div className="relative aspect-[4/5]">
@@ -180,7 +189,7 @@ function Index() {
                   aria-hidden
                   className="absolute inset-0"
                   style={{
-                    background: `radial-gradient(60% 55% at 50% 42%, ${COPPER}40 0%, ${COPPER}1A 35%, transparent 70%)`,
+                    background: `radial-gradient(58% 52% at 50% 40%, ${COPPER}55 0%, ${COPPER}22 38%, transparent 72%)`,
                   }}
                 />
                 {/* KV signature arcs */}
@@ -200,15 +209,25 @@ function Index() {
                   <circle cx="200" cy="230" r="180" fill="none" stroke="url(#copperArc)" strokeWidth="1.6" strokeDasharray="700 2000" strokeDashoffset="-80" />
                   <circle cx="200" cy="230" r="150" fill="none" stroke={COPPER} strokeOpacity="0.35" strokeWidth="1" strokeDasharray="420 2000" strokeDashoffset="-160" />
                 </svg>
-                {/* portrait cutout — blends with section bg */}
-                <img
-                  src={founders}
-                  alt="Junior Sabino e Vitor HRF, sócios da Bluw Comunicação"
-                  className="absolute inset-0 w-full h-full object-contain"
-                  style={{ filter: `drop-shadow(0 24px 40px ${NAVY_BLACK}99)` }}
-                />
-                {/* bottom floor fade — anchors the figures to the section */}
-                <div className="absolute inset-x-0 bottom-0 h-1/4 pointer-events-none" style={{ background: `linear-gradient(180deg, transparent 0%, ${NAVY} 90%)` }} />
+                {/* portrait cutout — blends with section bg via bottom mask + navy tint */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    WebkitMaskImage: "linear-gradient(180deg, #000 0%, #000 72%, transparent 98%)",
+                    maskImage: "linear-gradient(180deg, #000 0%, #000 72%, transparent 98%)",
+                  }}
+                >
+                  <img
+                    src={founders}
+                    alt="Junior Sabino e Vitor HRF, sócios da Bluw Comunicação"
+                    className="absolute inset-0 w-full h-full object-contain"
+                    style={{ filter: `drop-shadow(0 30px 50px ${NAVY_BLACK}) drop-shadow(0 0 20px ${NAVY_BLACK}66) saturate(0.92) contrast(1.02)` }}
+                  />
+                  {/* navy color cast — unifies skin/shirt with section temperature */}
+                  <div className="absolute inset-0 pointer-events-none mix-blend-color" style={{ background: NAVY, opacity: 0.14 }} />
+                  {/* subtle copper highlight from upper right */}
+                  <div className="absolute inset-0 pointer-events-none mix-blend-soft-light" style={{ background: `radial-gradient(40% 30% at 75% 20%, ${COPPER} 0%, transparent 70%)`, opacity: 0.55 }} />
+                </div>
                 {/* editorial labels */}
                 <div className="absolute top-2 left-0 flex items-center gap-3">
                   <span className="h-px w-6" style={{ background: COPPER }} />
@@ -365,8 +384,15 @@ function Index() {
       </section>
 
       {/* ─────────────── 8PS / CONRADO ─────────────── */}
-      <section style={{ background: PAPER }} className="py-24 md:py-32">
-        <div className="max-w-[1240px] mx-auto px-6 md:px-10">
+      <section style={{ background: PAPER }} className="py-24 md:py-32 relative overflow-hidden">
+        <svg aria-hidden className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.18] mix-blend-multiply">
+          <filter id="plasterCream">
+            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="3" />
+            <feColorMatrix values="0 0 0 0 0.42  0 0 0 0 0.32  0 0 0 0 0.18  0 0 0 0.4 0" />
+          </filter>
+          <rect width="100%" height="100%" filter="url(#plasterCream)" />
+        </svg>
+        <div className="max-w-[1240px] mx-auto px-6 md:px-10 relative">
           <div className="grid md:grid-cols-12 gap-12 items-end">
             <div className="md:col-span-5">
               <div className="relative aspect-[4/5]">
@@ -375,21 +401,29 @@ function Index() {
                   aria-hidden
                   className="absolute inset-0"
                   style={{
-                    background: `radial-gradient(55% 50% at 50% 40%, ${COPPER}33 0%, ${COPPER}12 40%, transparent 70%)`,
+                    background: `radial-gradient(55% 50% at 50% 38%, ${COPPER}44 0%, ${COPPER}18 42%, transparent 72%)`,
                   }}
                 />
                 {/* hairline arc */}
                 <svg aria-hidden viewBox="0 0 400 500" preserveAspectRatio="none" className="absolute inset-0 w-full h-full pointer-events-none">
                   <circle cx="200" cy="230" r="170" fill="none" stroke={COPPER} strokeOpacity="0.5" strokeWidth="1.2" strokeDasharray="520 2000" strokeDashoffset="-60" />
                 </svg>
-                <img
-                  src={conrado}
-                  alt="Conrado Adolpho, criador do Método 8Ps"
-                  className="absolute inset-0 w-full h-full object-contain"
-                  style={{ filter: `drop-shadow(0 18px 30px ${NAVY}55)` }}
-                />
-                {/* floor fade into PAPER */}
-                <div className="absolute inset-x-0 bottom-0 h-1/5 pointer-events-none" style={{ background: `linear-gradient(180deg, transparent 0%, ${PAPER} 95%)` }} />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    WebkitMaskImage: "linear-gradient(180deg, #000 0%, #000 75%, transparent 98%)",
+                    maskImage: "linear-gradient(180deg, #000 0%, #000 75%, transparent 98%)",
+                  }}
+                >
+                  <img
+                    src={conrado}
+                    alt="Conrado Adolpho, criador do Método 8Ps"
+                    className="absolute inset-0 w-full h-full object-contain"
+                    style={{ filter: `drop-shadow(0 24px 36px ${NAVY}55) drop-shadow(0 0 14px ${COPPER}55) saturate(0.95)` }}
+                  />
+                  {/* warm cream cast to unify with bg */}
+                  <div className="absolute inset-0 pointer-events-none mix-blend-soft-light" style={{ background: CREAM, opacity: 0.35 }} />
+                </div>
                 <div className="absolute top-2 left-0 flex items-center gap-3">
                   <span className="h-px w-6" style={{ background: COPPER }} />
                   <Label color={NAVY}>MÉTODO 8PS</Label>
