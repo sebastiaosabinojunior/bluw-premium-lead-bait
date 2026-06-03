@@ -384,8 +384,15 @@ function Index() {
       </section>
 
       {/* ─────────────── 8PS / CONRADO ─────────────── */}
-      <section style={{ background: PAPER }} className="py-24 md:py-32">
-        <div className="max-w-[1240px] mx-auto px-6 md:px-10">
+      <section style={{ background: PAPER }} className="py-24 md:py-32 relative overflow-hidden">
+        <svg aria-hidden className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.18] mix-blend-multiply">
+          <filter id="plasterCream">
+            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="3" />
+            <feColorMatrix values="0 0 0 0 0.42  0 0 0 0 0.32  0 0 0 0 0.18  0 0 0 0.4 0" />
+          </filter>
+          <rect width="100%" height="100%" filter="url(#plasterCream)" />
+        </svg>
+        <div className="max-w-[1240px] mx-auto px-6 md:px-10 relative">
           <div className="grid md:grid-cols-12 gap-12 items-end">
             <div className="md:col-span-5">
               <div className="relative aspect-[4/5]">
@@ -394,21 +401,29 @@ function Index() {
                   aria-hidden
                   className="absolute inset-0"
                   style={{
-                    background: `radial-gradient(55% 50% at 50% 40%, ${COPPER}33 0%, ${COPPER}12 40%, transparent 70%)`,
+                    background: `radial-gradient(55% 50% at 50% 38%, ${COPPER}44 0%, ${COPPER}18 42%, transparent 72%)`,
                   }}
                 />
                 {/* hairline arc */}
                 <svg aria-hidden viewBox="0 0 400 500" preserveAspectRatio="none" className="absolute inset-0 w-full h-full pointer-events-none">
                   <circle cx="200" cy="230" r="170" fill="none" stroke={COPPER} strokeOpacity="0.5" strokeWidth="1.2" strokeDasharray="520 2000" strokeDashoffset="-60" />
                 </svg>
-                <img
-                  src={conrado}
-                  alt="Conrado Adolpho, criador do Método 8Ps"
-                  className="absolute inset-0 w-full h-full object-contain"
-                  style={{ filter: `drop-shadow(0 18px 30px ${NAVY}55)` }}
-                />
-                {/* floor fade into PAPER */}
-                <div className="absolute inset-x-0 bottom-0 h-1/5 pointer-events-none" style={{ background: `linear-gradient(180deg, transparent 0%, ${PAPER} 95%)` }} />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    WebkitMaskImage: "linear-gradient(180deg, #000 0%, #000 75%, transparent 98%)",
+                    maskImage: "linear-gradient(180deg, #000 0%, #000 75%, transparent 98%)",
+                  }}
+                >
+                  <img
+                    src={conrado}
+                    alt="Conrado Adolpho, criador do Método 8Ps"
+                    className="absolute inset-0 w-full h-full object-contain"
+                    style={{ filter: `drop-shadow(0 24px 36px ${NAVY}55) drop-shadow(0 0 14px ${COPPER}55) saturate(0.95)` }}
+                  />
+                  {/* warm cream cast to unify with bg */}
+                  <div className="absolute inset-0 pointer-events-none mix-blend-soft-light" style={{ background: CREAM, opacity: 0.35 }} />
+                </div>
                 <div className="absolute top-2 left-0 flex items-center gap-3">
                   <span className="h-px w-6" style={{ background: COPPER }} />
                   <Label color={NAVY}>MÉTODO 8PS</Label>
