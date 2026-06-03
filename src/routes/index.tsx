@@ -183,6 +183,7 @@ function Index() {
                   src={founders}
                   alt="Junior Sabino e Vitor HRF, sócios da Bluw Comunicação"
                   className="absolute inset-0 w-full h-full object-cover"
+                  style={{ objectPosition: "center 18%" }}
                 />
                 {/* copper arc — KV signature */}
                 <svg
@@ -202,7 +203,7 @@ function Index() {
                   <circle cx="80" cy="380" r="120" fill="none" stroke={COPPER} strokeOpacity="0.55" strokeWidth="1.4" strokeDasharray="320 1000" strokeDashoffset="-100" />
                 </svg>
                 {/* bottom navy gradient */}
-                <div className="absolute inset-x-0 bottom-0 h-1/2" style={{ background: `linear-gradient(180deg, transparent 0%, ${NAVY_BLACK} 100%)` }} />
+                <div className="absolute inset-x-0 bottom-0 h-1/3" style={{ background: `linear-gradient(180deg, transparent 0%, ${NAVY_BLACK} 100%)` }} />
                 {/* hairline frame */}
                 <div className="absolute inset-4 border pointer-events-none" style={{ borderColor: `${COPPER}55` }} />
                 {/* labels */}
