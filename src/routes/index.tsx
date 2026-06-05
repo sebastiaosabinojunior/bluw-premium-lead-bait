@@ -149,10 +149,10 @@ function Index() {
                 ["4°", "mês com pipeline previsível e equipe comercial fechando com mais consistência", "SHOWROOM PREMIUM · RJ"],
               ].map(([v, t, src], i) => (
                 <div key={i}>
-                  <div className="py-8 grid grid-cols-12 gap-6 items-baseline">
-                    <div className="col-span-3 font-display text-[40px] md:text-[56px] leading-none tracking-tight" style={{ color: NAVY }}>{v}</div>
-                    <p className="col-span-7 text-[16px] leading-snug" style={{ color: INK }}>{t}</p>
-                    <div className="col-span-2 text-right"><Label color="#7A7A88">{src}</Label></div>
+                  <div className="py-8 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 md:items-baseline">
+                    <div className="md:col-span-3 font-display text-[44px] md:text-[56px] leading-none tracking-tight" style={{ color: NAVY }}>{v}</div>
+                    <p className="md:col-span-7 text-[15px] md:text-[16px] leading-snug" style={{ color: INK }}>{t}</p>
+                    <div className="md:col-span-2 md:text-right"><Label color="#7A7A88">{src}</Label></div>
                   </div>
                   <Rule />
                 </div>
