@@ -41,7 +41,7 @@ const Label = ({ children, color = INK }: { children: React.ReactNode; color?: s
 
 function Index() {
   return (
-    <div style={{ background: PAPER, color: INK }} className="min-h-screen">
+    <div style={{ background: PAPER, color: INK }} className="min-h-screen overflow-x-hidden">
       {/* ─────────────── NAV ─────────────── */}
       <nav className="sticky top-0 z-50" style={{ background: NAVY, borderBottom: `1px solid ${CYAN}33` }}>
         <div className="max-w-[1240px] mx-auto px-6 md:px-10 h-[68px] flex items-center justify-between">
