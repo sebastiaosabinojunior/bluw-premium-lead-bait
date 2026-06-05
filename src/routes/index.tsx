@@ -478,9 +478,9 @@ function Index() {
               ].map(([n, t, d], i) => (
                 <div key={i}>
                   <Rule />
-                  <div className="py-10 grid grid-cols-12 gap-6">
-                    <div className="col-span-2 font-display text-4xl md:text-5xl" style={{ color: CYAN }}>{n}</div>
-                    <div className="col-span-10">
+                  <div className="py-8 md:py-10 grid grid-cols-12 gap-4 md:gap-6">
+                    <div className="col-span-12 md:col-span-2 font-display text-4xl md:text-5xl" style={{ color: CYAN }}>{n}</div>
+                    <div className="col-span-12 md:col-span-10">
                       <h3 className="font-display text-2xl md:text-3xl" style={{ color: NAVY }}>{t}</h3>
                       <p className="mt-4 text-[15px] leading-relaxed max-w-[58ch]" style={{ color: "#3A3A4A" }}>{d}</p>
                     </div>
