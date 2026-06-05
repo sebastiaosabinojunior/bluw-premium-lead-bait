@@ -393,9 +393,9 @@ function Index() {
           <rect width="100%" height="100%" filter="url(#plasterCream)" />
         </svg>
         <div className="max-w-[1240px] mx-auto px-6 md:px-10 relative">
-          <div className="grid md:grid-cols-12 gap-12 items-end">
+          <div className="grid md:grid-cols-12 gap-10 md:gap-12 items-end">
             <div className="md:col-span-5">
-              <div className="relative aspect-[4/5]">
+              <div className="relative aspect-[3/4] md:aspect-[4/5] max-w-[460px] mx-auto md:mx-0 w-full">
                 {/* copper halo blending into cream bg */}
                 <div
                   aria-hidden
@@ -411,8 +411,8 @@ function Index() {
                 <div
                   className="absolute inset-0"
                   style={{
-                    WebkitMaskImage: "linear-gradient(180deg, #000 0%, #000 75%, transparent 98%)",
-                    maskImage: "linear-gradient(180deg, #000 0%, #000 75%, transparent 98%)",
+                    WebkitMaskImage: "linear-gradient(180deg, #000 0%, #000 88%, transparent 100%)",
+                    maskImage: "linear-gradient(180deg, #000 0%, #000 88%, transparent 100%)",
                   }}
                 >
                   <img
@@ -424,15 +424,15 @@ function Index() {
                   {/* warm cream cast to unify with bg */}
                   <div className="absolute inset-0 pointer-events-none mix-blend-soft-light" style={{ background: CREAM, opacity: 0.35 }} />
                 </div>
-                <div className="absolute top-2 left-0 flex items-center gap-3">
+                <div className="absolute top-2 left-2 flex items-center gap-3">
                   <span className="h-px w-6" style={{ background: COPPER }} />
                   <Label color={NAVY}>MÉTODO 8PS</Label>
                 </div>
-                <div className="absolute top-2 right-0">
+                <div className="absolute top-2 right-2">
                   <Label color="#7A7A88">FIG. 05</Label>
                 </div>
               </div>
-              <div className="mt-3 px-1">
+              <div className="mt-5 max-w-[460px] mx-auto md:mx-0 text-center md:text-left px-1">
                 <span className="font-display italic text-base md:text-lg" style={{ color: NAVY }}>Conrado Adolpho</span>
               </div>
             </div>
