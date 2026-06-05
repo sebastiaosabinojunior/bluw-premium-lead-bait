@@ -181,9 +181,9 @@ function Index() {
         </svg>
         <div aria-hidden className="absolute inset-0 pointer-events-none" style={{ background: `radial-gradient(120% 80% at 20% 30%, ${NAVY_DEEP} 0%, transparent 60%), radial-gradient(100% 80% at 90% 90%, ${NAVY_BLACK} 0%, transparent 55%)` }} />
         <div className="max-w-[1240px] mx-auto px-6 md:px-10 relative">
-          <div className="grid md:grid-cols-12 gap-12 items-end">
+          <div className="grid md:grid-cols-12 gap-10 md:gap-12 items-end">
             <div className="md:col-span-5 order-2 md:order-1 relative">
-              <div className="relative aspect-[4/5]">
+              <div className="relative aspect-[3/4] md:aspect-[4/5] max-w-[460px] mx-auto md:mx-0 w-full">
                 {/* copper radial halo behind subjects */}
                 <div
                   aria-hidden
@@ -213,8 +213,8 @@ function Index() {
                 <div
                   className="absolute inset-0"
                   style={{
-                    WebkitMaskImage: "linear-gradient(180deg, #000 0%, #000 72%, transparent 98%)",
-                    maskImage: "linear-gradient(180deg, #000 0%, #000 72%, transparent 98%)",
+                    WebkitMaskImage: "linear-gradient(180deg, #000 0%, #000 86%, transparent 100%)",
+                    maskImage: "linear-gradient(180deg, #000 0%, #000 86%, transparent 100%)",
                   }}
                 >
                   <img
@@ -229,18 +229,18 @@ function Index() {
                   <div className="absolute inset-0 pointer-events-none mix-blend-soft-light" style={{ background: `radial-gradient(40% 30% at 75% 20%, ${COPPER} 0%, transparent 70%)`, opacity: 0.55 }} />
                 </div>
                 {/* editorial labels */}
-                <div className="absolute top-2 left-0 flex items-center gap-3">
+                <div className="absolute top-2 left-2 flex items-center gap-3">
                   <span className="h-px w-6" style={{ background: COPPER }} />
                   <Label color={CREAM}>BLUW / SÓCIOS</Label>
                 </div>
-                <div className="absolute top-2 right-0">
+                <div className="absolute top-2 right-2">
                   <Label color="rgba(255,239,213,0.55)">FIG. 02</Label>
                 </div>
               </div>
-              <div className="mt-4 flex items-baseline justify-between gap-3 px-1">
-                <span className="font-display italic text-base md:text-lg" style={{ color: CREAM }}>Junior Sabino</span>
+              <div className="mt-5 max-w-[460px] mx-auto md:mx-0 flex items-baseline justify-center md:justify-between gap-4 px-1">
+                <span className="font-display italic text-[15px] md:text-lg whitespace-nowrap" style={{ color: CREAM }}>Junior Sabino</span>
                 <span className="font-mono-label text-[10px]" style={{ color: COPPER }}>&</span>
-                <span className="font-display italic text-base md:text-lg" style={{ color: CREAM }}>Vitor HRF</span>
+                <span className="font-display italic text-[15px] md:text-lg whitespace-nowrap" style={{ color: CREAM }}>Vitor HRF</span>
               </div>
             </div>
 
