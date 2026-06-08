@@ -73,8 +73,8 @@ function Index() {
           </div>
           <a
             href="#contato"
-            className="font-mono-label text-[10px] px-5 py-2.5 border transition-colors"
-            style={{ borderColor: CYAN, color: CYAN }}
+            className="font-mono-label text-[10px] px-5 py-2.5 transition-all hover:shadow-[0_8px_24px_-8px_rgba(201,163,106,0.6)]"
+            style={{ background: GRAD_COPPER_BTN, color: NAVY_BLACK }}
           >
             AGENDAR DIAGNÓSTICO
           </a>
@@ -117,7 +117,7 @@ function Index() {
           </div>
 
           <div className="mt-14 flex flex-col sm:flex-row gap-5 sm:items-center">
-            <a href="#contato" className="font-mono-label text-[11px] px-8 py-4 inline-flex items-center justify-center gap-3 transition-colors hover:opacity-90" style={{ background: COPPER, color: NAVY_BLACK }}>
+            <a href="#contato" className="font-mono-label text-[11px] px-8 py-4 inline-flex items-center justify-center gap-3 transition-all hover:translate-y-[-1px] hover:shadow-[0_18px_40px_-12px_rgba(201,163,106,0.55)]" style={{ background: GRAD_COPPER_BTN, color: NAVY_BLACK }}>
               AGENDAR DIAGNÓSTICO <span aria-hidden>→</span>
             </a>
             <a href="#metodo" className="font-mono-label text-[11px] px-8 py-4 inline-flex items-center justify-center border transition-colors" style={{ borderColor: `${CREAM}55`, color: CREAM }}>
@@ -135,7 +135,7 @@ function Index() {
               ["4°", "MÊS DE PIPELINE PREVISÍVEL"],
             ].map(([v, l], i) => (
               <div key={i} className={`py-6 px-4 ${i !== 0 ? "md:border-l" : ""} ${i % 2 !== 0 ? "border-l md:border-l" : ""} ${i >= 2 ? "border-t md:border-t-0" : ""}`} style={{ borderColor: "rgba(255,255,255,0.15)" }}>
-                <div className="font-display text-3xl md:text-4xl">{v}</div>
+                <div className="font-display text-3xl md:text-4xl" style={GRAD_TEXT_COPPER}>{v}</div>
                 <div className="mt-2"><Label color="rgba(255,255,255,0.55)">{l}</Label></div>
               </div>
             ))}
