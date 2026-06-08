@@ -61,9 +61,9 @@ function Index() {
     <div style={{ background: PAPER, color: INK }} className="min-h-screen overflow-x-hidden">
       {/* ─────────────── NAV ─────────────── */}
       <nav className="sticky top-0 z-50" style={{ background: NAVY, borderBottom: `1px solid ${CYAN}33` }}>
-        <div className="max-w-[1240px] mx-auto px-6 md:px-10 h-[68px] flex items-center justify-between">
+        <div className="max-w-[1240px] mx-auto px-4 md:px-10 h-[60px] md:h-[68px] flex items-center justify-between gap-3">
           <a href="#top" className="flex items-baseline gap-2">
-            <span className="font-display text-2xl tracking-tight text-white">Bluw<span style={{ color: CYAN }}>.</span></span>
+            <span className="font-display text-xl md:text-2xl tracking-tight text-white">Bluw<span style={{ color: CYAN }}>.</span></span>
             <span className="font-mono-label text-[9px] text-white/60 hidden sm:inline">COMUNICAÇÃO</span>
           </a>
           <div className="hidden md:flex items-center gap-8">
@@ -73,10 +73,11 @@ function Index() {
           </div>
           <a
             href="#contato"
-            className="font-mono-label text-[10px] px-5 py-2.5 transition-all hover:shadow-[0_8px_24px_-8px_rgba(201,163,106,0.6)]"
+            className="font-mono-label text-[9px] md:text-[10px] px-3 md:px-5 py-2 md:py-2.5 whitespace-nowrap transition-all hover:shadow-[0_8px_24px_-8px_rgba(201,163,106,0.6)]"
             style={{ background: GRAD_COPPER_BTN, color: NAVY_BLACK }}
           >
-            AGENDAR DIAGNÓSTICO
+            <span className="hidden sm:inline">AGENDAR DIAGNÓSTICO</span>
+            <span className="sm:hidden">AGENDAR</span>
           </a>
         </div>
       </nav>
@@ -96,46 +97,49 @@ function Index() {
           <circle cx="1000" cy="220" r="340" fill="none" stroke="url(#heroCopper)" strokeWidth="1.8" strokeDasharray="900 2000" strokeDashoffset="-80" />
           <circle cx="1080" cy="240" r="260" fill="none" stroke={COPPER} strokeOpacity="0.35" strokeWidth="1" strokeDasharray="600 2000" strokeDashoffset="-180" />
         </svg>
-        <div className="max-w-[1240px] mx-auto px-6 md:px-10 pt-20 md:pt-28 pb-20 md:pb-28 relative">
+        <div className="max-w-[1240px] mx-auto px-5 md:px-10 pt-14 md:pt-28 pb-16 md:pb-28 relative">
           {/* eyebrow row */}
-          <div className="flex items-center gap-4 mb-10">
-            <span className="h-px w-14" style={{ background: COPPER }} />
-            <Label color={CREAM}>ESPECIALISTAS EM VAREJO MOVELEIRO DE MÉDIO E ALTO PADRÃO</Label>
+          <div className="flex items-center gap-3 md:gap-4 mb-8 md:mb-10">
+            <span className="h-px w-8 md:w-14 shrink-0" style={{ background: COPPER }} />
+            <Label color={CREAM}>
+              <span className="hidden sm:inline">ESPECIALISTAS EM VAREJO MOVELEIRO DE MÉDIO E ALTO PADRÃO</span>
+              <span className="sm:hidden">VAREJO MOVELEIRO PREMIUM</span>
+            </Label>
           </div>
 
           {/* headline grid */}
-          <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-end">
-            <h1 className="md:col-span-9 font-display font-normal text-[44px] sm:text-[58px] md:text-[78px] leading-[0.98] tracking-[-0.02em]">
+          <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-end">
+            <h1 className="md:col-span-9 font-display font-normal text-[34px] sm:text-[52px] md:text-[78px] leading-[1] md:leading-[0.98] tracking-[-0.02em]">
               Sua loja atraindo clientes com <em className="italic" style={{ color: CYAN }}>perfil real</em>, fechando sem brigar no preço e crescendo com previsibilidade.
             </h1>
             <div className="md:col-span-3 md:pb-3">
               <Rule color="rgba(255,255,255,0.25)" />
-              <p className="mt-5 text-sm leading-relaxed text-white/75">
+              <p className="mt-4 md:mt-5 text-[13px] md:text-sm leading-relaxed text-white/75">
                 Estruturamos o caminho do seu cliente desde o primeiro contato digital até o fechamento no showroom — com método, maturação de demanda e sem agência genérica.
               </p>
             </div>
           </div>
 
-          <div className="mt-14 flex flex-col sm:flex-row gap-5 sm:items-center">
-            <a href="#contato" className="font-mono-label text-[11px] px-8 py-4 inline-flex items-center justify-center gap-3 transition-all hover:translate-y-[-1px] hover:shadow-[0_18px_40px_-12px_rgba(201,163,106,0.55)]" style={{ background: GRAD_COPPER_BTN, color: NAVY_BLACK }}>
+          <div className="mt-10 md:mt-14 flex flex-col sm:flex-row gap-3 sm:gap-5 sm:items-center">
+            <a href="#contato" className="font-mono-label text-[11px] px-6 md:px-8 py-3.5 md:py-4 inline-flex items-center justify-center gap-3 transition-all hover:translate-y-[-1px] hover:shadow-[0_18px_40px_-12px_rgba(201,163,106,0.55)]" style={{ background: GRAD_COPPER_BTN, color: NAVY_BLACK }}>
               AGENDAR DIAGNÓSTICO <span aria-hidden>→</span>
             </a>
-            <a href="#metodo" className="font-mono-label text-[11px] px-8 py-4 inline-flex items-center justify-center border transition-colors" style={{ borderColor: `${CREAM}55`, color: CREAM }}>
+            <a href="#metodo" className="font-mono-label text-[11px] px-6 md:px-8 py-3.5 md:py-4 inline-flex items-center justify-center border transition-colors" style={{ borderColor: `${CREAM}55`, color: CREAM }}>
               CONHECER O MÉTODO
             </a>
-            <span className="font-mono-label text-[10px] sm:ml-2" style={{ color: `${CREAM}99` }}>DIAGNÓSTICO GRATUITO · SEM COMPROMISSO</span>
+            <span className="font-mono-label text-[9px] md:text-[10px] sm:ml-2 text-center sm:text-left" style={{ color: `${CREAM}99` }}>DIAGNÓSTICO GRATUITO · SEM COMPROMISSO</span>
           </div>
 
           {/* ticker strip */}
-          <div className="mt-24 grid grid-cols-2 md:grid-cols-4 border-t border-b" style={{ borderColor: "rgba(255,255,255,0.15)" }}>
+          <div className="mt-16 md:mt-24 grid grid-cols-2 md:grid-cols-4 border-t border-b" style={{ borderColor: "rgba(255,255,255,0.15)" }}>
             {[
               ["+180%", "FATURAMENTO / 90 DIAS"],
               ["3×", "VISITAS QUALIFICADAS"],
               ["−60%", "LEADS FRIOS"],
               ["4°", "MÊS DE PIPELINE PREVISÍVEL"],
             ].map(([v, l], i) => (
-              <div key={i} className={`py-6 px-4 ${i !== 0 ? "md:border-l" : ""} ${i % 2 !== 0 ? "border-l md:border-l" : ""} ${i >= 2 ? "border-t md:border-t-0" : ""}`} style={{ borderColor: "rgba(255,255,255,0.15)" }}>
-                <div className="font-display text-3xl md:text-4xl" style={GRAD_TEXT_COPPER}>{v}</div>
+              <div key={i} className={`py-5 md:py-6 px-3 md:px-4 ${i !== 0 ? "md:border-l" : ""} ${i % 2 !== 0 ? "border-l md:border-l" : ""} ${i >= 2 ? "border-t md:border-t-0" : ""}`} style={{ borderColor: "rgba(255,255,255,0.15)" }}>
+                <div className="font-display text-[28px] md:text-4xl leading-none" style={GRAD_TEXT_COPPER}>{v}</div>
                 <div className="mt-2"><Label color="rgba(255,255,255,0.55)">{l}</Label></div>
               </div>
             ))}
