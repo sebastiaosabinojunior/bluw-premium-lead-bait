@@ -296,89 +296,89 @@ function Index() {
       </section>
 
       {/* ─────────────── PROBLEMA ─────────────── */}
-      <section id="problema" className="py-24 md:py-32" style={{ background: PAPER }}>
-        <div className="max-w-[1240px] mx-auto px-6 md:px-10">
+      <section id="problema" className="py-16 md:py-32" style={{ background: PAPER }}>
+        <div className="max-w-[1240px] mx-auto px-5 md:px-10">
           <div className="max-w-[760px]">
             <Label color={CYAN}>03 — O CENÁRIO REAL DO SEU MERCADO</Label>
-            <h2 className="font-display text-4xl md:text-[56px] leading-[1.02] tracking-tight mt-6" style={{ color: NAVY }}>
+            <h2 className="font-display text-[32px] md:text-[56px] leading-[1.05] md:leading-[1.02] tracking-tight mt-5 md:mt-6" style={{ color: NAVY }}>
               Você investe em marketing. Mas o lead que chega <em className="italic" style={{ color: CYAN }}>não tem perfil.</em>
             </h2>
-            <p className="mt-6 text-[16px] leading-relaxed" style={{ color: "#3A3A4A" }}>
+            <p className="mt-5 md:mt-6 text-[14px] md:text-[16px] leading-relaxed" style={{ color: "#3A3A4A" }}>
               Isso não é azar. É sintoma de um marketing feito para volume — não para o ciclo longo de decisão do varejo de alto padrão.
             </p>
           </div>
 
-          <div className="mt-16 grid md:grid-cols-2 gap-px" style={{ background: LINE }}>
+          <div className="mt-10 md:mt-16 grid md:grid-cols-2 gap-px" style={{ background: LINE }}>
             {[
               ["Só aparece curioso querendo preço", "Você investe em tráfego e recebe contatos que nunca vão comprar um sofá de R$ 15 mil. O vendedor perde tempo, se frustra e culpa o marketing."],
               ["Recebo muito lead mas fecho quase nada", "Não é o vendedor que é fraco — é o lead que chega despreparado. Sem valor percebido construído antes do contato, qualquer vendedor perde."],
               ["Invisto em marketing mas não vejo retorno", "Tráfego sem maturação gera volume sem qualidade. O ROI some porque o lead chega frio demais para tomar uma decisão de R$ 30k."],
               ["Já contratei agência e não funcionou", "Prometeram leads qualificados. Entregaram volume. Seu produto é premium — o sistema de marketing também precisa ser."],
             ].map(([t, d], i) => (
-              <div key={i} className="p-8 md:p-10" style={{ background: PAPER }}>
-                <div className="flex items-start gap-5">
-                  <span className="font-display text-3xl leading-none mt-1" style={{ color: CYAN }}>✕</span>
+              <div key={i} className="p-6 md:p-10" style={{ background: PAPER }}>
+                <div className="flex items-start gap-4 md:gap-5">
+                  <span className="font-display text-2xl md:text-3xl leading-none mt-1" style={{ color: CYAN }}>✕</span>
                   <div>
-                    <h3 className="font-display italic text-xl md:text-2xl leading-snug" style={{ color: NAVY }}>"{t}"</h3>
-                    <p className="mt-4 text-[15px] leading-relaxed" style={{ color: "#3A3A4A" }}>{d}</p>
+                    <h3 className="font-display italic text-lg md:text-2xl leading-snug" style={{ color: NAVY }}>"{t}"</h3>
+                    <p className="mt-3 md:mt-4 text-[14px] md:text-[15px] leading-relaxed" style={{ color: "#3A3A4A" }}>{d}</p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
 
-          <p className="mt-16 max-w-[820px] font-display text-2xl md:text-[32px] leading-[1.25]" style={{ color: NAVY }}>
+          <p className="mt-10 md:mt-16 max-w-[820px] font-display text-xl md:text-[32px] leading-[1.3] md:leading-[1.25]" style={{ color: NAVY }}>
             O digital atrai. Mas o fechamento é humano. O que está faltando não é mais tráfego —<br className="hidden md:block"/>é <em className="italic" style={{ color: CYAN }}>um sistema que prepara o cliente antes de ele chegar no seu showroom.</em>
           </p>
         </div>
       </section>
 
       {/* ─────────────── MÉTODO GMD ─────────────── */}
-      <section id="metodo" style={{ background: NAVY_DEEP, color: "white" }} className="py-24 md:py-32">
-        <div className="max-w-[1240px] mx-auto px-6 md:px-10">
+      <section id="metodo" style={{ background: NAVY_DEEP, color: "white" }} className="py-16 md:py-32">
+        <div className="max-w-[1240px] mx-auto px-5 md:px-10">
           <Label color={CYAN}>04 — NOSSO MÉTODO EXCLUSIVO</Label>
-          <div className="mt-6 grid md:grid-cols-12 gap-10 items-end">
-            <h2 className="md:col-span-8 font-display text-4xl md:text-[72px] leading-[0.98] tracking-tight">
+          <div className="mt-5 md:mt-6 grid md:grid-cols-12 gap-6 md:gap-10 items-end">
+            <h2 className="md:col-span-8 font-display text-[34px] md:text-[72px] leading-[1] md:leading-[0.98] tracking-tight">
               GMD — Gestão e <em className="italic" style={{ color: CYAN }}>Maturação de Demanda</em>
             </h2>
-            <p className="md:col-span-4 text-[15px] leading-relaxed text-white/75">
+            <p className="md:col-span-4 text-[14px] md:text-[15px] leading-relaxed text-white/75">
               Não é uma campanha. É um sistema que trabalha o 80% da venda que acontece antes do seu vendedor entrar em cena.
             </p>
           </div>
 
           <Rule color="rgba(255,255,255,0.18)" />
-          <div className="mt-10 grid md:grid-cols-2 gap-10 max-w-[1080px]">
-            <p className="text-[15px] leading-relaxed text-white/75">
+          <div className="mt-8 md:mt-10 grid md:grid-cols-2 gap-6 md:gap-10 max-w-[1080px]">
+            <p className="text-[14px] md:text-[15px] leading-relaxed text-white/75">
               Ninguém acorda e decide comprar um sofá de R$ 30 mil. A decisão é longa — começa com uma percepção, amadurece com conexão e conteúdo, e se concretiza quando o cliente já formou uma opinião sobre quem vai atender ele.
             </p>
-            <p className="text-[15px] leading-relaxed text-white/75">
+            <p className="text-[14px] md:text-[15px] leading-relaxed text-white/75">
               O GMD estrutura exatamente esse caminho: <span style={{ color: CYAN }}>do primeiro contato digital até o momento em que o lead chega ao seu showroom preparado para comprar</span>, com valor percebido alto e as principais objeções já quebradas.
             </p>
           </div>
 
           {/* timeline */}
-          <div className="mt-20 grid md:grid-cols-4 gap-px" style={{ background: "rgba(255,255,255,0.15)" }}>
+          <div className="mt-12 md:mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px" style={{ background: "rgba(255,255,255,0.15)" }}>
             {[
               ["01", "MÊS 1", "Fundação", "Diagnóstico, análise do Instagram, planejamento de conteúdo e estruturação do funil de stories."],
               ["02", "MÊS 2", "Maturação", "Stories como motor de conexão, conteúdo educativo gerando valor percebido e remarketing ativo."],
               ["03", "MÊS 3", "Consolidação", "Sistema completo rodando, KPIs semanais, lead chegando mais preparado, vendedor com menos atrito."],
               ["04", "MÊS 4+", "Escala", "Base consolidada, aumento estratégico de verba e campanhas de alta performance."],
             ].map(([n, m, t, d], i) => (
-              <div key={i} className="p-7" style={{ background: NAVY_DEEP }}>
+              <div key={i} className="p-6 md:p-7" style={{ background: NAVY_DEEP }}>
                 <div className="flex items-baseline justify-between">
-                  <span className="font-display text-4xl" style={GRAD_TEXT_COPPER}>{n}</span>
+                  <span className="font-display text-3xl md:text-4xl" style={GRAD_TEXT_COPPER}>{n}</span>
                   <Label color="rgba(255,255,255,0.55)">{m}</Label>
                 </div>
-                <h4 className="font-display text-2xl mt-6">{t}</h4>
-                <p className="mt-3 text-[13px] leading-relaxed text-white/65">{d}</p>
+                <h4 className="font-display text-xl md:text-2xl mt-5 md:mt-6">{t}</h4>
+                <p className="mt-3 text-[13px] md:text-[13px] leading-relaxed text-white/65">{d}</p>
               </div>
             ))}
           </div>
 
           {/* deliverables */}
-          <div className="mt-24">
+          <div className="mt-16 md:mt-24">
             <Label color="rgba(255,255,255,0.55)">O QUE VOCÊ RECEBE NO GMD</Label>
-            <div className="mt-8 grid md:grid-cols-3 gap-px" style={{ background: "rgba(255,255,255,0.15)" }}>
+            <div className="mt-6 md:mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-px" style={{ background: "rgba(255,255,255,0.15)" }}>
               {[
                 ["01", "Análise do Instagram", "Diagnóstico completo de posicionamento e oportunidades"],
                 ["02", "Conteúdo Orgânico", "Planejamento de feed e reels para os 3 primeiros meses"],
@@ -387,17 +387,17 @@ function Index() {
                 ["05", "Relatório Semanal", "KPIs que o dono entende — qualidade, volume e conversão"],
                 ["06", "CS Semanal", "Acompanhamento do projeto e ajuste de rota em tempo real"],
               ].map(([n, t, d], i) => (
-                <div key={i} className="p-7" style={{ background: NAVY_DEEP }}>
+                <div key={i} className="p-6 md:p-7" style={{ background: NAVY_DEEP }}>
                   <Label color={CYAN}>{n}</Label>
-                  <h4 className="font-display text-xl mt-4">{t}</h4>
+                  <h4 className="font-display text-lg md:text-xl mt-3 md:mt-4">{t}</h4>
                   <p className="mt-3 text-[13px] leading-relaxed text-white/65">{d}</p>
                 </div>
               ))}
             </div>
           </div>
 
-          <blockquote className="mt-20 max-w-[920px]">
-            <p className="font-display italic text-2xl md:text-[34px] leading-[1.2]">
+          <blockquote className="mt-12 md:mt-20 max-w-[920px]">
+            <p className="font-display italic text-xl md:text-[34px] leading-[1.3] md:leading-[1.2]">
               "Não vendemos tráfego. Vendemos <span className="not-italic" style={{ color: CYAN }}>um sistema que prepara o mercado para comprar de você.</span>"
             </p>
           </blockquote>
