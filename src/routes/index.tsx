@@ -25,6 +25,23 @@ const CREAM = "#FFEFD5";      // cream highlight
 const INK = "#0A0A14";
 const PAPER = "#FFEFD5";      // cream as page background
 const LINE = "rgba(1,35,63,0.18)";
+const GRAD_COPPER = `linear-gradient(135deg, ${COPPER} 0%, ${CYAN} 50%, ${CREAM} 100%)`;
+const GRAD_COPPER_BTN = `linear-gradient(135deg, #B98758 0%, ${COPPER} 45%, ${CYAN} 100%)`;
+const GRAD_NAVY = `linear-gradient(160deg, ${NAVY_BLACK} 0%, ${NAVY_DEEP} 50%, ${NAVY} 100%)`;
+const GRAD_TEXT_COPPER: React.CSSProperties = {
+  backgroundImage: `linear-gradient(135deg, ${COPPER} 0%, ${CYAN} 55%, ${CREAM} 100%)`,
+  WebkitBackgroundClip: "text",
+  backgroundClip: "text",
+  WebkitTextFillColor: "transparent",
+  color: "transparent",
+};
+const GRAD_TEXT_NAVY: React.CSSProperties = {
+  backgroundImage: `linear-gradient(135deg, ${NAVY_BLACK} 0%, ${NAVY} 60%, ${COPPER} 130%)`,
+  WebkitBackgroundClip: "text",
+  backgroundClip: "text",
+  WebkitTextFillColor: "transparent",
+  color: "transparent",
+};
 
 const Rule = ({ color = LINE }: { color?: string }) => (
   <div className="w-full h-px" style={{ backgroundColor: color }} />
