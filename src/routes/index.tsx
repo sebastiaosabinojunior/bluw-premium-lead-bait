@@ -167,7 +167,7 @@ function Index() {
               ].map(([v, t, src], i) => (
                 <div key={i}>
                   <div className="py-8 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 md:items-baseline">
-                    <div className="md:col-span-3 font-display text-[44px] md:text-[56px] leading-none tracking-tight" style={{ color: NAVY }}>{v}</div>
+                    <div className="md:col-span-3 font-display text-[44px] md:text-[56px] leading-none tracking-tight" style={GRAD_TEXT_NAVY}>{v}</div>
                     <p className="md:col-span-7 text-[15px] md:text-[16px] leading-snug" style={{ color: INK }}>{t}</p>
                     <div className="md:col-span-2 md:text-right"><Label color="#7A7A88">{src}</Label></div>
                   </div>
@@ -281,7 +281,7 @@ function Index() {
                   ["100%", "Foco em varejo moveleiro médio, alto padrão e planejados"],
                 ].map(([v, l], i) => (
                   <div key={i} className="p-6" style={{ background: NAVY }}>
-                    <div className="font-display text-3xl md:text-4xl" style={{ color: CYAN }}>{v}</div>
+                    <div className="font-display text-3xl md:text-4xl" style={GRAD_TEXT_COPPER}>{v}</div>
                     <p className="mt-3 text-xs text-white/65 leading-relaxed">{l}</p>
                   </div>
                 ))}
@@ -362,7 +362,7 @@ function Index() {
             ].map(([n, m, t, d], i) => (
               <div key={i} className="p-7" style={{ background: NAVY_DEEP }}>
                 <div className="flex items-baseline justify-between">
-                  <span className="font-display text-4xl" style={{ color: CYAN }}>{n}</span>
+                  <span className="font-display text-4xl" style={GRAD_TEXT_COPPER}>{n}</span>
                   <Label color="rgba(255,255,255,0.55)">{m}</Label>
                 </div>
                 <h4 className="font-display text-2xl mt-6">{t}</h4>
@@ -523,7 +523,7 @@ function Index() {
               <p className="mt-8 text-[16px] text-white/75 max-w-[58ch]">
                 Gratuito. Sem compromisso. Com clareza real sobre o que está travando o crescimento da sua loja.
               </p>
-              <a href="#contato" className="mt-10 inline-flex items-center gap-3 font-mono-label text-[11px] px-8 py-4" style={{ background: CYAN, color: NAVY }}>
+              <a href="#contato" className="mt-10 inline-flex items-center gap-3 font-mono-label text-[11px] px-8 py-4 transition-all hover:translate-y-[-1px] hover:shadow-[0_18px_40px_-12px_rgba(201,163,106,0.65)]" style={{ background: GRAD_COPPER_BTN, color: NAVY_BLACK }}>
                 QUERO AGENDAR MEU DIAGNÓSTICO <span aria-hidden>→</span>
               </a>
             </div>
@@ -535,7 +535,7 @@ function Index() {
                 ["Foco Exclusivo", "Varejo Moveleiro Premium"],
               ].map(([t, s], i) => (
                 <div key={i} className="p-5" style={{ background: NAVY }}>
-                  <div className="font-display text-base" style={{ color: CYAN }}>{t}</div>
+                  <div className="font-display text-base" style={GRAD_TEXT_COPPER}>{t}</div>
                   <div className="mt-1 text-[11px] text-white/65">{s}</div>
                 </div>
               ))}
