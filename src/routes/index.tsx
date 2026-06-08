@@ -25,6 +25,23 @@ const CREAM = "#FFEFD5";      // cream highlight
 const INK = "#0A0A14";
 const PAPER = "#FFEFD5";      // cream as page background
 const LINE = "rgba(1,35,63,0.18)";
+const GRAD_COPPER = `linear-gradient(135deg, ${COPPER} 0%, ${CYAN} 50%, ${CREAM} 100%)`;
+const GRAD_COPPER_BTN = `linear-gradient(135deg, #B98758 0%, ${COPPER} 45%, ${CYAN} 100%)`;
+const GRAD_NAVY = `linear-gradient(160deg, ${NAVY_BLACK} 0%, ${NAVY_DEEP} 50%, ${NAVY} 100%)`;
+const GRAD_TEXT_COPPER: React.CSSProperties = {
+  backgroundImage: `linear-gradient(135deg, ${COPPER} 0%, ${CYAN} 55%, ${CREAM} 100%)`,
+  WebkitBackgroundClip: "text",
+  backgroundClip: "text",
+  WebkitTextFillColor: "transparent",
+  color: "transparent",
+};
+const GRAD_TEXT_NAVY: React.CSSProperties = {
+  backgroundImage: `linear-gradient(135deg, ${NAVY_BLACK} 0%, ${NAVY} 60%, ${COPPER} 130%)`,
+  WebkitBackgroundClip: "text",
+  backgroundClip: "text",
+  WebkitTextFillColor: "transparent",
+  color: "transparent",
+};
 
 const Rule = ({ color = LINE }: { color?: string }) => (
   <div className="w-full h-px" style={{ backgroundColor: color }} />
@@ -56,8 +73,8 @@ function Index() {
           </div>
           <a
             href="#contato"
-            className="font-mono-label text-[10px] px-5 py-2.5 border transition-colors"
-            style={{ borderColor: CYAN, color: CYAN }}
+            className="font-mono-label text-[10px] px-5 py-2.5 transition-all hover:shadow-[0_8px_24px_-8px_rgba(201,163,106,0.6)]"
+            style={{ background: GRAD_COPPER_BTN, color: NAVY_BLACK }}
           >
             AGENDAR DIAGNÓSTICO
           </a>
@@ -100,7 +117,7 @@ function Index() {
           </div>
 
           <div className="mt-14 flex flex-col sm:flex-row gap-5 sm:items-center">
-            <a href="#contato" className="font-mono-label text-[11px] px-8 py-4 inline-flex items-center justify-center gap-3 transition-colors hover:opacity-90" style={{ background: COPPER, color: NAVY_BLACK }}>
+            <a href="#contato" className="font-mono-label text-[11px] px-8 py-4 inline-flex items-center justify-center gap-3 transition-all hover:translate-y-[-1px] hover:shadow-[0_18px_40px_-12px_rgba(201,163,106,0.55)]" style={{ background: GRAD_COPPER_BTN, color: NAVY_BLACK }}>
               AGENDAR DIAGNÓSTICO <span aria-hidden>→</span>
             </a>
             <a href="#metodo" className="font-mono-label text-[11px] px-8 py-4 inline-flex items-center justify-center border transition-colors" style={{ borderColor: `${CREAM}55`, color: CREAM }}>
@@ -118,7 +135,7 @@ function Index() {
               ["4°", "MÊS DE PIPELINE PREVISÍVEL"],
             ].map(([v, l], i) => (
               <div key={i} className={`py-6 px-4 ${i !== 0 ? "md:border-l" : ""} ${i % 2 !== 0 ? "border-l md:border-l" : ""} ${i >= 2 ? "border-t md:border-t-0" : ""}`} style={{ borderColor: "rgba(255,255,255,0.15)" }}>
-                <div className="font-display text-3xl md:text-4xl">{v}</div>
+                <div className="font-display text-3xl md:text-4xl" style={GRAD_TEXT_COPPER}>{v}</div>
                 <div className="mt-2"><Label color="rgba(255,255,255,0.55)">{l}</Label></div>
               </div>
             ))}
@@ -150,7 +167,7 @@ function Index() {
               ].map(([v, t, src], i) => (
                 <div key={i}>
                   <div className="py-8 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 md:items-baseline">
-                    <div className="md:col-span-3 font-display text-[44px] md:text-[56px] leading-none tracking-tight" style={{ color: NAVY }}>{v}</div>
+                    <div className="md:col-span-3 font-display text-[44px] md:text-[56px] leading-none tracking-tight" style={GRAD_TEXT_NAVY}>{v}</div>
                     <p className="md:col-span-7 text-[15px] md:text-[16px] leading-snug" style={{ color: INK }}>{t}</p>
                     <div className="md:col-span-2 md:text-right"><Label color="#7A7A88">{src}</Label></div>
                   </div>
@@ -264,7 +281,7 @@ function Index() {
                   ["100%", "Foco em varejo moveleiro médio, alto padrão e planejados"],
                 ].map(([v, l], i) => (
                   <div key={i} className="p-6" style={{ background: NAVY }}>
-                    <div className="font-display text-3xl md:text-4xl" style={{ color: CYAN }}>{v}</div>
+                    <div className="font-display text-3xl md:text-4xl" style={GRAD_TEXT_COPPER}>{v}</div>
                     <p className="mt-3 text-xs text-white/65 leading-relaxed">{l}</p>
                   </div>
                 ))}
@@ -345,7 +362,7 @@ function Index() {
             ].map(([n, m, t, d], i) => (
               <div key={i} className="p-7" style={{ background: NAVY_DEEP }}>
                 <div className="flex items-baseline justify-between">
-                  <span className="font-display text-4xl" style={{ color: CYAN }}>{n}</span>
+                  <span className="font-display text-4xl" style={GRAD_TEXT_COPPER}>{n}</span>
                   <Label color="rgba(255,255,255,0.55)">{m}</Label>
                 </div>
                 <h4 className="font-display text-2xl mt-6">{t}</h4>
@@ -479,7 +496,7 @@ function Index() {
                 <div key={i}>
                   <Rule />
                   <div className="py-8 md:py-10 grid grid-cols-12 gap-4 md:gap-6">
-                    <div className="col-span-12 md:col-span-2 font-display text-4xl md:text-5xl" style={{ color: CYAN }}>{n}</div>
+                    <div className="col-span-12 md:col-span-2 font-display text-4xl md:text-5xl" style={GRAD_TEXT_NAVY}>{n}</div>
                     <div className="col-span-12 md:col-span-10">
                       <h3 className="font-display text-2xl md:text-3xl" style={{ color: NAVY }}>{t}</h3>
                       <p className="mt-4 text-[15px] leading-relaxed max-w-[58ch]" style={{ color: "#3A3A4A" }}>{d}</p>
@@ -496,6 +513,8 @@ function Index() {
       {/* ─────────────── CTA FINAL ─────────────── */}
       <section id="contato" style={{ background: NAVY, color: "white" }} className="py-28 md:py-36 relative overflow-hidden">
         <div aria-hidden className="absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full" style={{ background: `radial-gradient(circle, ${CYAN}1A 0%, transparent 70%)` }} />
+        <div aria-hidden className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full" style={{ background: `radial-gradient(circle, ${COPPER}33 0%, transparent 70%)` }} />
+        <div aria-hidden className="absolute inset-x-0 top-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${COPPER}, transparent)` }} />
         <div className="max-w-[1240px] mx-auto px-6 md:px-10 relative">
           <div className="grid md:grid-cols-12 gap-12 items-end">
             <div className="md:col-span-8">
@@ -506,7 +525,7 @@ function Index() {
               <p className="mt-8 text-[16px] text-white/75 max-w-[58ch]">
                 Gratuito. Sem compromisso. Com clareza real sobre o que está travando o crescimento da sua loja.
               </p>
-              <a href="#contato" className="mt-10 inline-flex items-center gap-3 font-mono-label text-[11px] px-8 py-4" style={{ background: CYAN, color: NAVY }}>
+              <a href="#contato" className="mt-10 inline-flex items-center gap-3 font-mono-label text-[11px] px-8 py-4 transition-all hover:translate-y-[-1px] hover:shadow-[0_18px_40px_-12px_rgba(201,163,106,0.65)]" style={{ background: GRAD_COPPER_BTN, color: NAVY_BLACK }}>
                 QUERO AGENDAR MEU DIAGNÓSTICO <span aria-hidden>→</span>
               </a>
             </div>
@@ -518,7 +537,7 @@ function Index() {
                 ["Foco Exclusivo", "Varejo Moveleiro Premium"],
               ].map(([t, s], i) => (
                 <div key={i} className="p-5" style={{ background: NAVY }}>
-                  <div className="font-display text-base" style={{ color: CYAN }}>{t}</div>
+                  <div className="font-display text-base" style={GRAD_TEXT_COPPER}>{t}</div>
                   <div className="mt-1 text-[11px] text-white/65">{s}</div>
                 </div>
               ))}
