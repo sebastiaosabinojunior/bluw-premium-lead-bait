@@ -496,7 +496,7 @@ function Index() {
                 <div key={i}>
                   <Rule />
                   <div className="py-8 md:py-10 grid grid-cols-12 gap-4 md:gap-6">
-                    <div className="col-span-12 md:col-span-2 font-display text-4xl md:text-5xl" style={{ color: CYAN }}>{n}</div>
+                    <div className="col-span-12 md:col-span-2 font-display text-4xl md:text-5xl" style={GRAD_TEXT_NAVY}>{n}</div>
                     <div className="col-span-12 md:col-span-10">
                       <h3 className="font-display text-2xl md:text-3xl" style={{ color: NAVY }}>{t}</h3>
                       <p className="mt-4 text-[15px] leading-relaxed max-w-[58ch]" style={{ color: "#3A3A4A" }}>{d}</p>
@@ -513,6 +513,8 @@ function Index() {
       {/* ─────────────── CTA FINAL ─────────────── */}
       <section id="contato" style={{ background: NAVY, color: "white" }} className="py-28 md:py-36 relative overflow-hidden">
         <div aria-hidden className="absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full" style={{ background: `radial-gradient(circle, ${CYAN}1A 0%, transparent 70%)` }} />
+        <div aria-hidden className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full" style={{ background: `radial-gradient(circle, ${COPPER}33 0%, transparent 70%)` }} />
+        <div aria-hidden className="absolute inset-x-0 top-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${COPPER}, transparent)` }} />
         <div className="max-w-[1240px] mx-auto px-6 md:px-10 relative">
           <div className="grid md:grid-cols-12 gap-12 items-end">
             <div className="md:col-span-8">
