@@ -148,15 +148,15 @@ function Index() {
       </header>
 
       {/* ─────────────── RESULTADOS ─────────────── */}
-      <section id="resultados" className="py-24 md:py-32">
-        <div className="max-w-[1240px] mx-auto px-6 md:px-10">
-          <div className="grid md:grid-cols-12 gap-10">
+      <section id="resultados" className="py-16 md:py-32">
+        <div className="max-w-[1240px] mx-auto px-5 md:px-10">
+          <div className="grid md:grid-cols-12 gap-8 md:gap-10">
             <div className="md:col-span-4">
               <Label color={CYAN}>01 — RESULTADOS</Label>
-              <h2 className="font-display text-4xl md:text-5xl leading-[1] tracking-tight mt-6">
+              <h2 className="font-display text-[34px] md:text-5xl leading-[1] tracking-tight mt-5 md:mt-6">
                 Números reais.<br/><em className="italic" style={{ color: CYAN }}>Negócios reais.</em>
               </h2>
-              <p className="mt-6 text-[15px] leading-relaxed" style={{ color: "#3A3A4A" }}>
+              <p className="mt-5 md:mt-6 text-[14px] md:text-[15px] leading-relaxed" style={{ color: "#3A3A4A" }}>
                 Não trabalhamos com promessa de volume. Trabalhamos com previsibilidade de resultado e qualidade de lead.
               </p>
             </div>
@@ -170,17 +170,17 @@ function Index() {
                 ["4°", "mês com pipeline previsível e equipe comercial fechando com mais consistência", "SHOWROOM PREMIUM · RJ"],
               ].map(([v, t, src], i) => (
                 <div key={i}>
-                  <div className="py-8 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 md:items-baseline">
-                    <div className="md:col-span-3 font-display text-[44px] md:text-[56px] leading-none tracking-tight" style={GRAD_TEXT_NAVY}>{v}</div>
-                    <p className="md:col-span-7 text-[15px] md:text-[16px] leading-snug" style={{ color: INK }}>{t}</p>
-                    <div className="md:col-span-2 md:text-right"><Label color="#7A7A88">{src}</Label></div>
+                  <div className="py-6 md:py-8 grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-6 md:items-baseline">
+                    <div className="md:col-span-3 font-display text-[40px] md:text-[56px] leading-none tracking-tight" style={GRAD_TEXT_NAVY}>{v}</div>
+                    <p className="md:col-span-7 text-[14px] md:text-[16px] leading-snug" style={{ color: INK }}>{t}</p>
+                    <div className="md:col-span-2 md:text-right mt-1 md:mt-0"><Label color="#7A7A88">{src}</Label></div>
                   </div>
                   <Rule />
                 </div>
               ))}
 
-              <blockquote className="mt-12 pl-6 border-l-2" style={{ borderColor: CYAN }}>
-                <p className="font-display italic text-2xl md:text-[28px] leading-[1.25]" style={{ color: NAVY }}>
+              <blockquote className="mt-10 md:mt-12 pl-5 md:pl-6 border-l-2" style={{ borderColor: CYAN }}>
+                <p className="font-display italic text-xl md:text-[28px] leading-[1.3]" style={{ color: NAVY }}>
                   "Finalmente uma consultoria que entende que móvel de alto padrão não se vende com volume de leads. A Bluw estruturou nosso processo do zero — hoje temos previsibilidade de agenda e a equipe está muito mais preparada para conduzir o cliente até o fechamento."
                 </p>
                 <footer className="mt-5"><Label color="#7A7A88">DONO DE LOJA · ALTO PADRÃO · SÃO PAULO</Label></footer>
@@ -191,7 +191,7 @@ function Index() {
       </section>
 
       {/* ─────────────── QUEM SOMOS (BLUW) ─────────────── */}
-      <section id="bluw" style={{ background: NAVY, color: "white" }} className="py-24 md:py-32 relative overflow-hidden">
+      <section id="bluw" style={{ background: NAVY, color: "white" }} className="py-16 md:py-32 relative overflow-hidden">
         {/* plaster texture overlay — same family as hero KV */}
         <svg aria-hidden className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.35] mix-blend-overlay">
           <filter id="plasterBluw">
@@ -201,10 +201,10 @@ function Index() {
           <rect width="100%" height="100%" filter="url(#plasterBluw)" />
         </svg>
         <div aria-hidden className="absolute inset-0 pointer-events-none" style={{ background: `radial-gradient(120% 80% at 20% 30%, ${NAVY_DEEP} 0%, transparent 60%), radial-gradient(100% 80% at 90% 90%, ${NAVY_BLACK} 0%, transparent 55%)` }} />
-        <div className="max-w-[1240px] mx-auto px-6 md:px-10 relative">
-          <div className="grid md:grid-cols-12 gap-10 md:gap-12 items-end">
+        <div className="max-w-[1240px] mx-auto px-5 md:px-10 relative">
+          <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-end">
             <div className="md:col-span-5 order-2 md:order-1 relative">
-              <div className="relative aspect-[3/4] md:aspect-[4/5] max-w-[460px] mx-auto md:mx-0 w-full">
+              <div className="relative aspect-[4/5] max-w-[360px] md:max-w-[460px] mx-auto md:mx-0 w-full">
                 {/* copper radial halo behind subjects */}
                 <div
                   aria-hidden
@@ -258,35 +258,35 @@ function Index() {
                   <Label color="rgba(255,239,213,0.55)">FIG. 02</Label>
                 </div>
               </div>
-              <div className="mt-5 max-w-[460px] mx-auto md:mx-0 flex items-baseline justify-center md:justify-between gap-4 px-1">
-                <span className="font-display italic text-[15px] md:text-lg whitespace-nowrap" style={{ color: CREAM }}>Junior Sabino</span>
+              <div className="mt-5 max-w-[360px] md:max-w-[460px] mx-auto md:mx-0 flex items-baseline justify-center md:justify-between gap-3 md:gap-4 px-1">
+                <span className="font-display italic text-[14px] md:text-lg whitespace-nowrap" style={{ color: CREAM }}>Junior Sabino</span>
                 <span className="font-mono-label text-[10px]" style={{ color: COPPER }}>&</span>
-                <span className="font-display italic text-[15px] md:text-lg whitespace-nowrap" style={{ color: CREAM }}>Vitor HRF</span>
+                <span className="font-display italic text-[14px] md:text-lg whitespace-nowrap" style={{ color: CREAM }}>Vitor HRF</span>
               </div>
             </div>
 
             <div className="md:col-span-7 order-1 md:order-2">
               <Label color={CYAN}>02 — QUEM ESTÁ POR TRÁS</Label>
-              <h2 className="font-display text-4xl md:text-[56px] leading-[1] tracking-tight mt-6">
+              <h2 className="font-display text-[32px] md:text-[56px] leading-[1.02] md:leading-[1] tracking-tight mt-5 md:mt-6">
                 Não somos uma agência.<br/><em className="italic" style={{ color: CYAN }}>Somos especialistas no seu mercado.</em>
               </h2>
               <Rule color="rgba(255,255,255,0.18)" />
-              <p className="mt-8 text-[16px] leading-relaxed text-white/80 max-w-[58ch]">
+              <p className="mt-6 md:mt-8 text-[14px] md:text-[16px] leading-relaxed text-white/80 max-w-[58ch]">
                 Junior Sabino e Vitor HRF têm mais de 8 anos de experiência em marketing e vendas com foco exclusivo no varejo de móveis de médio e alto padrão e planejados.
               </p>
-              <p className="mt-5 text-[16px] leading-relaxed text-white/80 max-w-[58ch]">
+              <p className="mt-4 md:mt-5 text-[14px] md:text-[16px] leading-relaxed text-white/80 max-w-[58ch]">
                 Entendemos que o seu cliente não decide em um clique. Que a decisão de compra é longa, começa com uma percepção e amadurece antes do contato. E que o marketing precisa fazer esse trabalho antes do vendedor entrar em cena.
               </p>
 
-              <div className="mt-12 grid grid-cols-3 gap-px" style={{ background: "rgba(255,255,255,0.15)" }}>
+              <div className="mt-10 md:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-px" style={{ background: "rgba(255,255,255,0.15)" }}>
                 {[
                   ["8+", "Anos em marketing e vendas para varejo premium"],
                   ["GMD", "Método exclusivo de Gestão e Maturação de Demanda"],
                   ["100%", "Foco em varejo moveleiro médio, alto padrão e planejados"],
                 ].map(([v, l], i) => (
-                  <div key={i} className="p-6" style={{ background: NAVY }}>
-                    <div className="font-display text-3xl md:text-4xl" style={GRAD_TEXT_COPPER}>{v}</div>
-                    <p className="mt-3 text-xs text-white/65 leading-relaxed">{l}</p>
+                  <div key={i} className="p-5 md:p-6" style={{ background: NAVY }}>
+                    <div className="font-display text-[28px] md:text-4xl leading-none" style={GRAD_TEXT_COPPER}>{v}</div>
+                    <p className="mt-3 text-[12px] md:text-xs text-white/65 leading-relaxed">{l}</p>
                   </div>
                 ))}
               </div>
