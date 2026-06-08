@@ -405,7 +405,7 @@ function Index() {
       </section>
 
       {/* ─────────────── 8PS / CONRADO ─────────────── */}
-      <section style={{ background: PAPER }} className="py-24 md:py-32 relative overflow-hidden">
+      <section style={{ background: PAPER }} className="py-16 md:py-32 relative overflow-hidden">
         <svg aria-hidden className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.18] mix-blend-multiply">
           <filter id="plasterCream">
             <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="3" />
@@ -413,10 +413,10 @@ function Index() {
           </filter>
           <rect width="100%" height="100%" filter="url(#plasterCream)" />
         </svg>
-        <div className="max-w-[1240px] mx-auto px-6 md:px-10 relative">
-          <div className="grid md:grid-cols-12 gap-10 md:gap-12 items-end">
+        <div className="max-w-[1240px] mx-auto px-5 md:px-10 relative">
+          <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-end">
             <div className="md:col-span-5">
-              <div className="relative aspect-[3/4] md:aspect-[4/5] max-w-[460px] mx-auto md:mx-0 w-full">
+              <div className="relative aspect-[4/5] max-w-[340px] md:max-w-[460px] mx-auto md:mx-0 w-full">
                 {/* copper halo blending into cream bg */}
                 <div
                   aria-hidden
@@ -453,23 +453,23 @@ function Index() {
                   <Label color="#7A7A88">FIG. 05</Label>
                 </div>
               </div>
-              <div className="mt-5 max-w-[460px] mx-auto md:mx-0 text-center md:text-left px-1">
-                <span className="font-display italic text-base md:text-lg" style={{ color: NAVY }}>Conrado Adolpho</span>
+              <div className="mt-4 md:mt-5 max-w-[340px] md:max-w-[460px] mx-auto md:mx-0 text-center md:text-left px-1">
+                <span className="font-display italic text-sm md:text-lg" style={{ color: NAVY }}>Conrado Adolpho</span>
               </div>
             </div>
             <div className="md:col-span-7">
               <Label color={CYAN}>05 — LASTRO METODOLÓGICO</Label>
-              <h2 className="font-display text-4xl md:text-[56px] leading-[1] tracking-tight mt-6" style={{ color: NAVY }}>
+              <h2 className="font-display text-[32px] md:text-[56px] leading-[1.05] md:leading-[1] tracking-tight mt-5 md:mt-6" style={{ color: NAVY }}>
                 Consultoria certificada <em className="italic" style={{ color: CYAN }}>Método 8Ps.</em>
               </h2>
               <Rule />
-              <p className="mt-8 text-[16px] leading-relaxed max-w-[58ch]" style={{ color: "#3A3A4A" }}>
+              <p className="mt-6 md:mt-8 text-[14px] md:text-[16px] leading-relaxed max-w-[58ch]" style={{ color: "#3A3A4A" }}>
                 A Bluw é certificada oficialmente pelo Método 8Ps de Conrado Adolpho — referência brasileira em marketing digital aplicado a varejo. Isso significa um método validado, treinamento contínuo e uma estrutura comprovada por trás de cada decisão estratégica.
               </p>
-              <div className="mt-10 flex items-center gap-6">
-                <img src={selo} alt="Selo de certificação 8Ps" className="w-24 h-24 object-contain" />
+              <div className="mt-8 md:mt-10 flex items-center gap-4 md:gap-6">
+                <img src={selo} alt="Selo de certificação 8Ps" className="w-20 h-20 md:w-24 md:h-24 object-contain shrink-0" />
                 <div>
-                  <div className="font-display text-xl" style={{ color: NAVY }}>Consultoria Certificada 8Ps</div>
+                  <div className="font-display text-base md:text-xl leading-tight" style={{ color: NAVY }}>Consultoria Certificada 8Ps</div>
                   <div className="mt-1"><Label color="#7A7A88">MÉTODO VALIDADO · CONRADO ADOLPHO</Label></div>
                 </div>
               </div>
@@ -479,15 +479,15 @@ function Index() {
       </section>
 
       {/* ─────────────── PROCESSO ─────────────── */}
-      <section className="py-24 md:py-32" style={{ background: "white" }}>
-        <div className="max-w-[1240px] mx-auto px-6 md:px-10">
-          <div className="grid md:grid-cols-12 gap-10">
+      <section className="py-16 md:py-32" style={{ background: "white" }}>
+        <div className="max-w-[1240px] mx-auto px-5 md:px-10">
+          <div className="grid md:grid-cols-12 gap-8 md:gap-10">
             <div className="md:col-span-5">
               <Label color={CYAN}>06 — COMO FUNCIONA NA PRÁTICA</Label>
-              <h2 className="font-display text-4xl md:text-[56px] leading-[1] tracking-tight mt-6" style={{ color: NAVY }}>
+              <h2 className="font-display text-[32px] md:text-[56px] leading-[1.05] md:leading-[1] tracking-tight mt-5 md:mt-6" style={{ color: NAVY }}>
                 Três passos para ter <em className="italic" style={{ color: CYAN }}>previsibilidade</em> na sua loja.
               </h2>
-              <p className="mt-6 text-[15px] leading-relaxed" style={{ color: "#3A3A4A" }}>
+              <p className="mt-5 md:mt-6 text-[14px] md:text-[15px] leading-relaxed" style={{ color: "#3A3A4A" }}>
                 Nenhuma proposta antes do diagnóstico. Porque resultado real começa por entender o seu negócio de verdade.
               </p>
             </div>
@@ -499,11 +499,11 @@ function Index() {
               ].map(([n, t, d], i) => (
                 <div key={i}>
                   <Rule />
-                  <div className="py-8 md:py-10 grid grid-cols-12 gap-4 md:gap-6">
-                    <div className="col-span-12 md:col-span-2 font-display text-4xl md:text-5xl" style={GRAD_TEXT_NAVY}>{n}</div>
+                  <div className="py-6 md:py-10 grid grid-cols-12 gap-2 md:gap-6">
+                    <div className="col-span-12 md:col-span-2 font-display text-3xl md:text-5xl leading-none" style={GRAD_TEXT_NAVY}>{n}</div>
                     <div className="col-span-12 md:col-span-10">
-                      <h3 className="font-display text-2xl md:text-3xl" style={{ color: NAVY }}>{t}</h3>
-                      <p className="mt-4 text-[15px] leading-relaxed max-w-[58ch]" style={{ color: "#3A3A4A" }}>{d}</p>
+                      <h3 className="font-display text-xl md:text-3xl leading-tight" style={{ color: NAVY }}>{t}</h3>
+                      <p className="mt-3 md:mt-4 text-[14px] md:text-[15px] leading-relaxed max-w-[58ch]" style={{ color: "#3A3A4A" }}>{d}</p>
                     </div>
                   </div>
                 </div>
@@ -515,21 +515,21 @@ function Index() {
       </section>
 
       {/* ─────────────── CTA FINAL ─────────────── */}
-      <section id="contato" style={{ background: NAVY, color: "white" }} className="py-28 md:py-36 relative overflow-hidden">
+      <section id="contato" style={{ background: NAVY, color: "white" }} className="py-20 md:py-36 relative overflow-hidden">
         <div aria-hidden className="absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full" style={{ background: `radial-gradient(circle, ${CYAN}1A 0%, transparent 70%)` }} />
         <div aria-hidden className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full" style={{ background: `radial-gradient(circle, ${COPPER}33 0%, transparent 70%)` }} />
         <div aria-hidden className="absolute inset-x-0 top-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${COPPER}, transparent)` }} />
-        <div className="max-w-[1240px] mx-auto px-6 md:px-10 relative">
-          <div className="grid md:grid-cols-12 gap-12 items-end">
+        <div className="max-w-[1240px] mx-auto px-5 md:px-10 relative">
+          <div className="grid md:grid-cols-12 gap-10 md:gap-12 items-end">
             <div className="md:col-span-8">
               <Label color={CYAN}>07 — AGENDE SEU DIAGNÓSTICO ESTRATÉGICO</Label>
-              <h2 className="font-display text-4xl md:text-[76px] leading-[0.98] tracking-tight mt-6">
+              <h2 className="font-display text-[34px] md:text-[76px] leading-[1] md:leading-[0.98] tracking-tight mt-5 md:mt-6">
                 Crescimento não é sorte.<br/>É <em className="italic" style={{ color: CYAN }}>método, maturação e acompanhamento.</em>
               </h2>
-              <p className="mt-8 text-[16px] text-white/75 max-w-[58ch]">
+              <p className="mt-6 md:mt-8 text-[14px] md:text-[16px] text-white/75 max-w-[58ch]">
                 Gratuito. Sem compromisso. Com clareza real sobre o que está travando o crescimento da sua loja.
               </p>
-              <a href="#contato" className="mt-10 inline-flex items-center gap-3 font-mono-label text-[11px] px-8 py-4 transition-all hover:translate-y-[-1px] hover:shadow-[0_18px_40px_-12px_rgba(201,163,106,0.65)]" style={{ background: GRAD_COPPER_BTN, color: NAVY_BLACK }}>
+              <a href="#contato" className="mt-8 md:mt-10 inline-flex items-center gap-3 font-mono-label text-[11px] px-6 md:px-8 py-3.5 md:py-4 transition-all hover:translate-y-[-1px] hover:shadow-[0_18px_40px_-12px_rgba(201,163,106,0.65)]" style={{ background: GRAD_COPPER_BTN, color: NAVY_BLACK }}>
                 QUERO AGENDAR MEU DIAGNÓSTICO <span aria-hidden>→</span>
               </a>
             </div>
@@ -540,9 +540,9 @@ function Index() {
                 ["8+ Anos", "Marketing & Vendas"],
                 ["Foco Exclusivo", "Varejo Moveleiro Premium"],
               ].map(([t, s], i) => (
-                <div key={i} className="p-5" style={{ background: NAVY }}>
-                  <div className="font-display text-base" style={GRAD_TEXT_COPPER}>{t}</div>
-                  <div className="mt-1 text-[11px] text-white/65">{s}</div>
+                <div key={i} className="p-4 md:p-5" style={{ background: NAVY }}>
+                  <div className="font-display text-sm md:text-base leading-tight" style={GRAD_TEXT_COPPER}>{t}</div>
+                  <div className="mt-1 text-[10px] md:text-[11px] text-white/65 leading-snug">{s}</div>
                 </div>
               ))}
             </div>
@@ -551,13 +551,13 @@ function Index() {
       </section>
 
       {/* ─────────────── FOOTER ─────────────── */}
-      <footer style={{ background: NAVY_DEEP, color: "white" }} className="py-12">
-        <div className="max-w-[1240px] mx-auto px-6 md:px-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <footer style={{ background: NAVY_DEEP, color: "white" }} className="py-10 md:py-12">
+        <div className="max-w-[1240px] mx-auto px-5 md:px-10 flex flex-col md:flex-row md:items-center md:justify-between gap-5 md:gap-6">
           <div className="flex items-baseline gap-3">
             <span className="font-display text-xl">Bluw<span style={{ color: CYAN }}>.</span></span>
             <Label color="rgba(255,255,255,0.5)">COMUNICAÇÃO</Label>
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center gap-4 md:gap-6">
             <Label color="rgba(255,255,255,0.55)">@ojuniorsabino</Label>
             <Label color="rgba(255,255,255,0.55)">@vitorhrf</Label>
           </div>
