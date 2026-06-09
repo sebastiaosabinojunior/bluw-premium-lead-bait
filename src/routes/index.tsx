@@ -1,3 +1,4 @@
+import React from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import founders from "@/assets/bluw-founders-cutout.png";
 import conrado from "@/assets/conrado-cutout.png";
@@ -57,6 +58,22 @@ const Label = ({ children, color = INK }: { children: React.ReactNode; color?: s
 );
 
 function DiagnosticoForm() {
+  const [faturamentoOpen, setFaturamentoOpen] = React.useState(false);
+  const [desafioOpen, setDesafioOpen] = React.useState(false);
+  const [faturamento, setFaturamento] = React.useState("");
+  const [desafio, setDesafio] = React.useState("");
+  const faturamentoRef = React.useRef<HTMLDivElement>(null);
+  const desafioRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (faturamentoRef.current && !faturamentoRef.current.contains(e.target as Node)) setFaturamentoOpen(false);
+      if (desafioRef.current && !desafioRef.current.contains(e.target as Node)) setDesafioOpen(false);
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
   return (
     <form
       onSubmit={(e) => {
@@ -64,7 +81,9 @@ function DiagnosticoForm() {
         const data = new FormData(e.currentTarget);
         const nome = encodeURIComponent(String(data.get("nome") || ""));
         const loja = encodeURIComponent(String(data.get("loja") || ""));
-        const msg = `Olá! Sou ${decodeURIComponent(nome)} da loja ${decodeURIComponent(loja)} e quero um diagnóstico.`;
+        const fat = faturamento ? ` — Faturamento: ${faturamento}` : "";
+        const des = desafio ? ` — Desafio: ${desafio}` : "";
+        const msg = `Olá! Sou ${decodeURIComponent(nome)} da loja ${decodeURIComponent(loja)}${fat}${des} e quero um diagnóstico.`;
         window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, "_blank");
       }}
       className="relative w-full max-w-[460px] mx-auto p-6 md:p-7"
@@ -92,35 +111,27 @@ function DiagnosticoForm() {
         <FormInput name="loja" type="text" placeholder="Qual nome da sua loja?" required />
         <FormInput name="cidade" type="text" placeholder="Qual cidade da sua loja?" required />
 
-        <fieldset className="pt-2">
-          <legend className="font-mono-label text-[10px] mb-2.5 block" style={{ color: CREAM, letterSpacing: "0.22em" }}>
-            FATURAMENTO MENSAL ATUAL
-          </legend>
-          <div className="grid grid-cols-1 gap-2">
-            {["Até R$ 50 mil", "De R$ 50 mil a R$ 100 mil", "De R$ 100 mil até R$ 200 mil", "Acima de R$ 200 mil"].map((opt) => (
-              <label key={opt} className="diag-radio flex items-center gap-2.5 px-3 py-2.5 cursor-pointer text-[13px] text-white/90 transition-colors" style={{ border: "1px solid rgba(200,169,110,0.25)" }}>
-                <input type="radio" name="faturamento" value={opt} required className="diag-radio-input" />
-                <span className="diag-radio-dot" aria-hidden />
-                {opt}
-              </label>
-            ))}
-          </div>
-        </fieldset>
+        <FormSelect
+          ref={faturamentoRef}
+          label="FATURAMENTO MENSAL ATUAL"
+          placeholder="Selecione uma faixa"
+          value={faturamento}
+          open={faturamentoOpen}
+          onToggle={() => setFaturamentoOpen((v) => !v)}
+          onSelect={(v) => { setFaturamento(v); setFaturamentoOpen(false); }}
+          options={["Até R$ 50 mil", "De R$ 50 mil a R$ 100 mil", "De R$ 100 mil até R$ 200 mil", "Acima de R$ 200 mil"]}
+        />
 
-        <fieldset className="pt-2">
-          <legend className="font-mono-label text-[10px] mb-2.5 block" style={{ color: CREAM, letterSpacing: "0.22em" }}>
-            MAIOR DESAFIO HOJE (PODE MARCAR MAIS DE UM)
-          </legend>
-          <div className="grid grid-cols-1 gap-2">
-            {["Poucos atendimentos", "Melhorar taxa de conversão", "Leads desqualificados", "Melhorar fluxo em loja"].map((opt) => (
-              <label key={opt} className="diag-check flex items-center gap-2.5 px-3 py-2.5 cursor-pointer text-[13px] text-white/90 transition-colors" style={{ border: "1px solid rgba(200,169,110,0.25)" }}>
-                <input type="checkbox" name="desafio" value={opt} className="diag-check-input" />
-                <span className="diag-check-box" aria-hidden />
-                {opt}
-              </label>
-            ))}
-          </div>
-        </fieldset>
+        <FormSelect
+          ref={desafioRef}
+          label="MAIOR DESAFIO HOJE"
+          placeholder="Selecione seu maior desafio"
+          value={desafio}
+          open={desafioOpen}
+          onToggle={() => setDesafioOpen((v) => !v)}
+          onSelect={(v) => { setDesafio(v); setDesafioOpen(false); }}
+          options={["Poucos atendimentos", "Melhorar taxa de conversão", "Leads desqualificados", "Melhorar fluxo em loja"]}
+        />
 
         <button
           type="submit"
@@ -142,16 +153,68 @@ function DiagnosticoForm() {
         .diag-input { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(200,169,110,0.25); color: #fff; padding: 12px 14px; font-size: 14px; outline: none; transition: border-color .2s, background .2s; }
         .diag-input::placeholder { color: rgba(255,239,213,0.45); }
         .diag-input:focus { border-color: ${CYAN}; background: rgba(255,255,255,0.08); }
-        .diag-radio:hover, .diag-check:hover { background: rgba(200,169,110,0.08); }
-        .diag-radio-input, .diag-check-input { position: absolute; opacity: 0; pointer-events: none; }
-        .diag-radio-dot { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid rgba(200,169,110,0.6); display: inline-block; flex-shrink: 0; position: relative; }
-        .diag-radio-input:checked + .diag-radio-dot { border-color: ${CYAN}; background: radial-gradient(circle, ${CYAN} 45%, transparent 50%); }
-        .diag-check-box { width: 14px; height: 14px; border: 1.5px solid rgba(200,169,110,0.6); display: inline-block; flex-shrink: 0; position: relative; }
-        .diag-check-input:checked + .diag-check-box { background: ${CYAN}; border-color: ${CYAN}; }
-        .diag-check-input:checked + .diag-check-box::after { content: ""; position: absolute; left: 3px; top: 0px; width: 5px; height: 9px; border: solid ${NAVY_BLACK}; border-width: 0 2px 2px 0; transform: rotate(45deg); }
-        .diag-radio:has(.diag-radio-input:checked), .diag-check:has(.diag-check-input:checked) { border-color: ${CYAN}; background: rgba(200,169,110,0.1); }
+        .diag-select-trigger { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(200,169,110,0.25); color: #fff; padding: 12px 14px; font-size: 14px; outline: none; transition: border-color .2s, background .2s; display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
+        .diag-select-trigger:hover { background: rgba(255,255,255,0.07); }
+        .diag-select-trigger.open { border-color: ${CYAN}; background: rgba(255,255,255,0.08); }
+        .diag-select-trigger.placeholder { color: rgba(255,239,213,0.45); }
+        .diag-select-options { position: absolute; top: calc(100% + 4px); left: 0; right: 0; z-index: 20; background: ${NAVY_BLACK}; border: 1px solid rgba(200,169,110,0.35); overflow: hidden; }
+        .diag-select-option { padding: 10px 14px; font-size: 14px; color: rgba(255,239,213,0.9); cursor: pointer; transition: background .15s; }
+        .diag-select-option:hover { background: rgba(200,169,110,0.15); }
+        .diag-select-option.selected { background: rgba(200,169,110,0.1); color: ${CYAN}; }
       `}</style>
     </form>
+  );
+}
+
+type FormSelectProps = {
+  ref: React.RefObject<HTMLDivElement | null>;
+  label: string;
+  placeholder: string;
+  value: string;
+  open: boolean;
+  onToggle: () => void;
+  onSelect: (v: string) => void;
+  options: string[];
+};
+
+function FormSelect({ ref, label, placeholder, value, open, onToggle, onSelect, options }: FormSelectProps) {
+  return (
+    <div className="pt-2">
+      <label className="font-mono-label text-[10px] mb-2.5 block" style={{ color: CREAM, letterSpacing: "0.22em" }}>
+        {label}
+      </label>
+      <div ref={ref} className="relative">
+        <button
+          type="button"
+          onClick={onToggle}
+          className={`diag-select-trigger ${open ? "open" : ""} ${!value ? "placeholder" : ""}`}
+        >
+          <span>{value || placeholder}</span>
+          <svg
+            width="12"
+            height="8"
+            viewBox="0 0 12 8"
+            fill="none"
+            style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s" }}
+          >
+            <path d="M1 1.5L6 6.5L11 1.5" stroke={CYAN} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+        {open && (
+          <div className="diag-select-options">
+            {options.map((opt) => (
+              <div
+                key={opt}
+                className={`diag-select-option ${value === opt ? "selected" : ""}`}
+                onClick={() => onSelect(opt)}
+              >
+                {opt}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
 
