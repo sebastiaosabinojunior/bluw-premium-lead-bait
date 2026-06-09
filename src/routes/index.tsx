@@ -56,6 +56,109 @@ const Label = ({ children, color = INK }: { children: React.ReactNode; color?: s
   </span>
 );
 
+function DiagnosticoForm() {
+  return (
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        const data = new FormData(e.currentTarget);
+        const nome = encodeURIComponent(String(data.get("nome") || ""));
+        const loja = encodeURIComponent(String(data.get("loja") || ""));
+        const msg = `Olá! Sou ${decodeURIComponent(nome)} da loja ${decodeURIComponent(loja)} e quero um diagnóstico.`;
+        window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, "_blank");
+      }}
+      className="relative w-full max-w-[460px] mx-auto p-6 md:p-7"
+      style={{
+        background: "rgba(255,255,255,0.04)",
+        border: "1px solid rgba(200,169,110,0.2)",
+        backdropFilter: "blur(6px)",
+      }}
+    >
+      <div
+        aria-hidden
+        className="absolute top-0 left-0 right-0 h-[3px]"
+        style={{ background: `linear-gradient(90deg, ${COPPER}, ${CYAN}, ${CREAM}, ${CYAN}, ${COPPER})` }}
+      />
+      <div className="mb-5">
+        <Label color={CYAN}>DIAGNÓSTICO GRATUITO</Label>
+        <h3 className="font-display text-[22px] md:text-[26px] leading-tight mt-2 text-white">
+          Receba seu <em className="italic" style={{ color: CYAN }}>plano de ação</em>
+        </h3>
+      </div>
+
+      <div className="space-y-3.5">
+        <FormInput name="nome" type="text" placeholder="Nome completo" required />
+        <FormInput name="whatsapp" type="tel" placeholder="WhatsApp (DDD + número)" required />
+        <FormInput name="loja" type="text" placeholder="Qual nome da sua loja?" required />
+        <FormInput name="cidade" type="text" placeholder="Qual cidade da sua loja?" required />
+
+        <fieldset className="pt-2">
+          <legend className="font-mono-label text-[10px] mb-2.5 block" style={{ color: CREAM, letterSpacing: "0.22em" }}>
+            FATURAMENTO MENSAL ATUAL
+          </legend>
+          <div className="grid grid-cols-1 gap-2">
+            {["Até R$ 50 mil", "De R$ 50 mil a R$ 100 mil", "De R$ 100 mil até R$ 200 mil", "Acima de R$ 200 mil"].map((opt) => (
+              <label key={opt} className="diag-radio flex items-center gap-2.5 px-3 py-2.5 cursor-pointer text-[13px] text-white/90 transition-colors" style={{ border: "1px solid rgba(200,169,110,0.25)" }}>
+                <input type="radio" name="faturamento" value={opt} required className="diag-radio-input" />
+                <span className="diag-radio-dot" aria-hidden />
+                {opt}
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
+        <fieldset className="pt-2">
+          <legend className="font-mono-label text-[10px] mb-2.5 block" style={{ color: CREAM, letterSpacing: "0.22em" }}>
+            MAIOR DESAFIO HOJE (PODE MARCAR MAIS DE UM)
+          </legend>
+          <div className="grid grid-cols-1 gap-2">
+            {["Poucos atendimentos", "Melhorar taxa de conversão", "Leads desqualificados", "Melhorar fluxo em loja"].map((opt) => (
+              <label key={opt} className="diag-check flex items-center gap-2.5 px-3 py-2.5 cursor-pointer text-[13px] text-white/90 transition-colors" style={{ border: "1px solid rgba(200,169,110,0.25)" }}>
+                <input type="checkbox" name="desafio" value={opt} className="diag-check-input" />
+                <span className="diag-check-box" aria-hidden />
+                {opt}
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
+        <button
+          type="submit"
+          className="diag-submit w-full mt-3 py-4 font-mono-label text-[12px] tracking-[0.22em] uppercase transition-transform"
+          style={{ background: CYAN, color: NAVY_BLACK, fontWeight: 700 }}
+        >
+          Solicitar Orçamento
+        </button>
+        <p className="text-center text-[11px] text-white/55 mt-2">100% gratuito · resposta em até 24h</p>
+      </div>
+
+      <style>{`
+        @keyframes diagPulse {
+          0% { box-shadow: 0 0 0 0 rgba(200,169,110,0.4); }
+          70% { box-shadow: 0 0 0 12px rgba(200,169,110,0); }
+          100% { box-shadow: 0 0 0 0 rgba(200,169,110,0); }
+        }
+        .diag-submit:hover { animation: diagPulse 1.2s infinite; transform: translateY(-1px); }
+        .diag-input { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(200,169,110,0.25); color: #fff; padding: 12px 14px; font-size: 14px; outline: none; transition: border-color .2s, background .2s; }
+        .diag-input::placeholder { color: rgba(255,239,213,0.45); }
+        .diag-input:focus { border-color: ${CYAN}; background: rgba(255,255,255,0.08); }
+        .diag-radio:hover, .diag-check:hover { background: rgba(200,169,110,0.08); }
+        .diag-radio-input, .diag-check-input { position: absolute; opacity: 0; pointer-events: none; }
+        .diag-radio-dot { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid rgba(200,169,110,0.6); display: inline-block; flex-shrink: 0; position: relative; }
+        .diag-radio-input:checked + .diag-radio-dot { border-color: ${CYAN}; background: radial-gradient(circle, ${CYAN} 45%, transparent 50%); }
+        .diag-check-box { width: 14px; height: 14px; border: 1.5px solid rgba(200,169,110,0.6); display: inline-block; flex-shrink: 0; position: relative; }
+        .diag-check-input:checked + .diag-check-box { background: ${CYAN}; border-color: ${CYAN}; }
+        .diag-check-input:checked + .diag-check-box::after { content: ""; position: absolute; left: 3px; top: 0px; width: 5px; height: 9px; border: solid ${NAVY_BLACK}; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+        .diag-radio:has(.diag-radio-input:checked), .diag-check:has(.diag-check-input:checked) { border-color: ${CYAN}; background: rgba(200,169,110,0.1); }
+      `}</style>
+    </form>
+  );
+}
+
+function FormInput(props: React.InputHTMLAttributes<HTMLInputElement>) {
+  return <input {...props} className="diag-input" />;
+}
+
 function Index() {
   return (
     <div style={{ background: PAPER, color: INK }} className="min-h-screen overflow-x-hidden">
@@ -108,26 +211,27 @@ function Index() {
           </div>
 
           {/* headline grid */}
-          <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-end">
-            <h1 className="md:col-span-9 font-display font-normal text-[34px] sm:text-[52px] md:text-[78px] leading-[1] md:leading-[0.98] tracking-[-0.02em]">
-              Sua loja atraindo clientes com <em className="italic" style={{ color: CYAN }}>perfil real</em>, fechando sem brigar no preço e crescendo com previsibilidade.
-            </h1>
-            <div className="md:col-span-3 md:pb-3">
-              <Rule color="rgba(255,255,255,0.25)" />
-              <p className="mt-4 md:mt-5 text-[13px] md:text-sm leading-relaxed text-white/75">
-                Estruturamos o caminho do seu cliente desde o primeiro contato digital até o fechamento no showroom — com método, maturação de demanda e sem agência genérica.
-              </p>
+          <div className="grid md:grid-cols-12 gap-10 md:gap-12 items-start">
+            <div className="md:col-span-7">
+              <h1 className="font-display font-normal text-[34px] sm:text-[52px] md:text-[68px] leading-[1] md:leading-[0.98] tracking-[-0.02em]">
+                Sua loja atraindo clientes com <em className="italic" style={{ color: CYAN }}>perfil real</em>, fechando sem brigar no preço e crescendo com previsibilidade.
+              </h1>
+              <div className="mt-6 md:mt-8 max-w-[520px]">
+                <Rule color="rgba(255,255,255,0.25)" />
+                <p className="mt-4 md:mt-5 text-[13px] md:text-sm leading-relaxed text-white/75">
+                  Estruturamos o caminho do seu cliente desde o primeiro contato digital até o fechamento no showroom — com método, maturação de demanda e sem agência genérica.
+                </p>
+              </div>
+              <div className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 sm:items-center">
+                <a href="#metodo" className="font-mono-label text-[11px] px-6 md:px-7 py-3.5 md:py-4 inline-flex items-center justify-center border transition-colors" style={{ borderColor: `${CREAM}55`, color: CREAM }}>
+                  CONHECER O MÉTODO
+                </a>
+                <span className="font-mono-label text-[9px] md:text-[10px] sm:ml-2 text-center sm:text-left" style={{ color: `${CREAM}99` }}>SEM COMPROMISSO</span>
+              </div>
             </div>
-          </div>
-
-          <div className="mt-10 md:mt-14 flex flex-col sm:flex-row gap-3 sm:gap-5 sm:items-center">
-            <a href="#contato" className="font-mono-label text-[11px] px-6 md:px-8 py-3.5 md:py-4 inline-flex items-center justify-center gap-3 transition-all hover:translate-y-[-1px] hover:shadow-[0_18px_40px_-12px_rgba(201,163,106,0.55)]" style={{ background: GRAD_COPPER_BTN, color: NAVY_BLACK }}>
-              AGENDAR DIAGNÓSTICO <span aria-hidden>→</span>
-            </a>
-            <a href="#metodo" className="font-mono-label text-[11px] px-6 md:px-8 py-3.5 md:py-4 inline-flex items-center justify-center border transition-colors" style={{ borderColor: `${CREAM}55`, color: CREAM }}>
-              CONHECER O MÉTODO
-            </a>
-            <span className="font-mono-label text-[9px] md:text-[10px] sm:ml-2 text-center sm:text-left" style={{ color: `${CREAM}99` }}>DIAGNÓSTICO GRATUITO · SEM COMPROMISSO</span>
+            <div className="md:col-span-5">
+              <DiagnosticoForm />
+            </div>
           </div>
 
           {/* ticker strip */}
