@@ -211,26 +211,27 @@ function Index() {
           </div>
 
           {/* headline grid */}
-          <div className="grid md:grid-cols-12 gap-6 md:gap-12 items-end">
-            <h1 className="md:col-span-9 font-display font-normal text-[34px] sm:text-[52px] md:text-[78px] leading-[1] md:leading-[0.98] tracking-[-0.02em]">
-              Sua loja atraindo clientes com <em className="italic" style={{ color: CYAN }}>perfil real</em>, fechando sem brigar no preço e crescendo com previsibilidade.
-            </h1>
-            <div className="md:col-span-3 md:pb-3">
-              <Rule color="rgba(255,255,255,0.25)" />
-              <p className="mt-4 md:mt-5 text-[13px] md:text-sm leading-relaxed text-white/75">
-                Estruturamos o caminho do seu cliente desde o primeiro contato digital até o fechamento no showroom — com método, maturação de demanda e sem agência genérica.
-              </p>
+          <div className="grid md:grid-cols-12 gap-10 md:gap-12 items-start">
+            <div className="md:col-span-7">
+              <h1 className="font-display font-normal text-[34px] sm:text-[52px] md:text-[68px] leading-[1] md:leading-[0.98] tracking-[-0.02em]">
+                Sua loja atraindo clientes com <em className="italic" style={{ color: CYAN }}>perfil real</em>, fechando sem brigar no preço e crescendo com previsibilidade.
+              </h1>
+              <div className="mt-6 md:mt-8 max-w-[520px]">
+                <Rule color="rgba(255,255,255,0.25)" />
+                <p className="mt-4 md:mt-5 text-[13px] md:text-sm leading-relaxed text-white/75">
+                  Estruturamos o caminho do seu cliente desde o primeiro contato digital até o fechamento no showroom — com método, maturação de demanda e sem agência genérica.
+                </p>
+              </div>
+              <div className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 sm:items-center">
+                <a href="#metodo" className="font-mono-label text-[11px] px-6 md:px-7 py-3.5 md:py-4 inline-flex items-center justify-center border transition-colors" style={{ borderColor: `${CREAM}55`, color: CREAM }}>
+                  CONHECER O MÉTODO
+                </a>
+                <span className="font-mono-label text-[9px] md:text-[10px] sm:ml-2 text-center sm:text-left" style={{ color: `${CREAM}99` }}>SEM COMPROMISSO</span>
+              </div>
             </div>
-          </div>
-
-          <div className="mt-10 md:mt-14 flex flex-col sm:flex-row gap-3 sm:gap-5 sm:items-center">
-            <a href="#contato" className="font-mono-label text-[11px] px-6 md:px-8 py-3.5 md:py-4 inline-flex items-center justify-center gap-3 transition-all hover:translate-y-[-1px] hover:shadow-[0_18px_40px_-12px_rgba(201,163,106,0.55)]" style={{ background: GRAD_COPPER_BTN, color: NAVY_BLACK }}>
-              AGENDAR DIAGNÓSTICO <span aria-hidden>→</span>
-            </a>
-            <a href="#metodo" className="font-mono-label text-[11px] px-6 md:px-8 py-3.5 md:py-4 inline-flex items-center justify-center border transition-colors" style={{ borderColor: `${CREAM}55`, color: CREAM }}>
-              CONHECER O MÉTODO
-            </a>
-            <span className="font-mono-label text-[9px] md:text-[10px] sm:ml-2 text-center sm:text-left" style={{ color: `${CREAM}99` }}>DIAGNÓSTICO GRATUITO · SEM COMPROMISSO</span>
+            <div className="md:col-span-5">
+              <DiagnosticoForm />
+            </div>
           </div>
 
           {/* ticker strip */}
