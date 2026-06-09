@@ -1,3 +1,4 @@
+import React from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import founders from "@/assets/bluw-founders-cutout.png";
 import conrado from "@/assets/conrado-cutout.png";
